@@ -1,6 +1,6 @@
 
 var assert = require("assert");
-var math = require("../math.js");
+var math = require("../lib/math.js");
 
 describe("math", function() {
   describe(".sinh", function() {

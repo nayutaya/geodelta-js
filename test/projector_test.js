@@ -1,6 +1,6 @@
 
 var assert = require("assert");
-var projector = require("../projector.js");
+var projector = require("../lib/projector.js");
 
 describe("projector", function() {
   var assertRoughlyEquals = function(expected, actual, delta) {
