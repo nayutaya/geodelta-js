@@ -4,68 +4,6 @@ function test_namespace_encoder() {
   assertNotUndefined(geodelta.encoder);
 }
 
-function test_encodeSubDelta__1()
-{
-  assertEquals("2", geodelta.encoder.encodeSubDelta([0, 0]));
-  assertEquals("3", geodelta.encoder.encodeSubDelta([0, 1]));
-  assertEquals("4", geodelta.encoder.encodeSubDelta([0, 2]));
-  assertEquals("5", geodelta.encoder.encodeSubDelta([0, 3]));
-  assertEquals("6", geodelta.encoder.encodeSubDelta([1, 0]));
-  assertEquals("7", geodelta.encoder.encodeSubDelta([1, 1]));
-  assertEquals("8", geodelta.encoder.encodeSubDelta([1, 2]));
-  assertEquals("A", geodelta.encoder.encodeSubDelta([1, 3]));
-  assertEquals("B", geodelta.encoder.encodeSubDelta([2, 0]));
-  assertEquals("C", geodelta.encoder.encodeSubDelta([2, 1]));
-  assertEquals("D", geodelta.encoder.encodeSubDelta([2, 2]));
-  assertEquals("E", geodelta.encoder.encodeSubDelta([2, 3]));
-  assertEquals("F", geodelta.encoder.encodeSubDelta([3, 0]));
-  assertEquals("G", geodelta.encoder.encodeSubDelta([3, 1]));
-  assertEquals("H", geodelta.encoder.encodeSubDelta([3, 2]));
-  assertEquals("J", geodelta.encoder.encodeSubDelta([3, 3]));
-}
-
-function test_encodeSubDelta__2()
-{
-  assertEquals("K", geodelta.encoder.encodeSubDelta([0]));
-  assertEquals("M", geodelta.encoder.encodeSubDelta([1]));
-  assertEquals("N", geodelta.encoder.encodeSubDelta([2]));
-  assertEquals("P", geodelta.encoder.encodeSubDelta([3]));
-}
-
-function test_encodeSubDelta__3()
-{
-  assertEquals("2K", geodelta.encoder.encodeSubDelta([0, 0, 0]));
-  assertEquals("22", geodelta.encoder.encodeSubDelta([0, 0, 0, 0]));
-  assertEquals("3N", geodelta.encoder.encodeSubDelta([0, 1, 2]));
-  assertEquals("3E", geodelta.encoder.encodeSubDelta([0, 1, 2, 3]));
-}
-
-/*
-    @Test(expected = IllegalArgumentException.class)
-    public void encodeSubDelta__invalidArg1()
-    {
-        geodelta.encoder.encodeSubDelta(null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void encodeSubDelta__invalidArg2()
-    {
-        geodelta.encoder.encodeSubDelta(new byte[0]);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void encodeSubDelta__invalidArg3()
-    {
-        geodelta.encoder.encodeSubDelta(new byte[] {-1});
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void encodeSubDelta__invalidArg4()
-    {
-        geodelta.encoder.encodeSubDelta(new byte[] {4});
-    }
-*/
-
 function test_decodeSubDelta__1()
 {
   assertArrayEquals([0, 0], geodelta.encoder.decodeSubDelta("2"));
