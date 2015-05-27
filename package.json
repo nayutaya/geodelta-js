@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "mocha": "~2.2.5"
+    "mocha": "~2.2.5",
+    "expect.js": "0.3.1"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"

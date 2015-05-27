@@ -1,5 +1,6 @@
 
 var assert = require("assert");
+var expect = require("expect.js");
 var encoder = require("../lib/encoder.js");
 
 describe("encoder", function() {
@@ -140,6 +141,97 @@ function test_encodeWorldDelta__invalidArg2()
     public void encodeSubDelta__invalidArg4()
     {
         geodelta.encoder.encodeSubDelta(new byte[] {4});
+    }
+*/
+
+  describe(".decodeSubDelta", function() {
+    var assertArrayEquals = function(expected, actual) {
+      expect(actual).to.eql(expected);
+    };
+    it("サブデルタコードをデコードできること", function() {
+      assertArrayEquals([0, 0], encoder.decodeSubDelta("2"));
+      assertArrayEquals([0, 1], encoder.decodeSubDelta("3"));
+      assertArrayEquals([0, 2], encoder.decodeSubDelta("4"));
+      assertArrayEquals([0, 3], encoder.decodeSubDelta("5"));
+      assertArrayEquals([1, 0], encoder.decodeSubDelta("6"));
+      assertArrayEquals([1, 1], encoder.decodeSubDelta("7"));
+      assertArrayEquals([1, 2], encoder.decodeSubDelta("8"));
+      assertArrayEquals([1, 3], encoder.decodeSubDelta("A"));
+      assertArrayEquals([2, 0], encoder.decodeSubDelta("B"));
+      assertArrayEquals([2, 1], encoder.decodeSubDelta("C"));
+      assertArrayEquals([2, 2], encoder.decodeSubDelta("D"));
+      assertArrayEquals([2, 3], encoder.decodeSubDelta("E"));
+      assertArrayEquals([3, 0], encoder.decodeSubDelta("F"));
+      assertArrayEquals([3, 1], encoder.decodeSubDelta("G"));
+      assertArrayEquals([3, 2], encoder.decodeSubDelta("H"));
+      assertArrayEquals([3, 3], encoder.decodeSubDelta("J"));
+    });
+    it("サブデルタコードをデコードできること", function() {
+      assertArrayEquals([0], encoder.decodeSubDelta("K"));
+      assertArrayEquals([1], encoder.decodeSubDelta("M"));
+      assertArrayEquals([2], encoder.decodeSubDelta("N"));
+      assertArrayEquals([3], encoder.decodeSubDelta("P"));
+    });
+    it("サブデルタコードをデコードできること", function() {
+      assertArrayEquals([0, 0, 0],    encoder.decodeSubDelta("2K"));
+      assertArrayEquals([0, 0, 0, 0], encoder.decodeSubDelta("22"));
+      assertArrayEquals([0, 1, 2],    encoder.decodeSubDelta("3N"));
+      assertArrayEquals([0, 1, 2, 3], encoder.decodeSubDelta("3E"));
+    });
+  });
+
+/*
+    @Test(expected = IllegalArgumentException.class)
+    public void decodeSubDelta__invalidArg1()
+    {
+        geodelta.encoder.decodeSubDelta(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void decodeSubDelta__invalidArg2()
+    {
+        geodelta.encoder.decodeSubDelta("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void decodeSubDelta__invalidArg3()
+    {
+        geodelta.encoder.decodeSubDelta("1");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void decodeSubDelta__invalidArg4()
+    {
+        geodelta.encoder.decodeSubDelta("Z");
+    }
+
+    @Test
+    public void allEncodeAndDecodeSubDelta__level2()
+    {
+        for ( int id1 = 0; id1 <= 3; id1++ )
+        {
+            final byte[] ids = {(byte)id1};
+            final String encoded1 = geodelta.encoder.encodeSubDelta(ids);
+            final byte[] decoded1 = geodelta.encoder.decodeSubDelta(encoded1);
+            final String encoded2 = geodelta.encoder.encodeSubDelta(decoded1);
+            assertEquals(encoded1, encoded2);
+        }
+    }
+
+    @Test
+    public void allEncodeAndDecodeSubDelta__level3()
+    {
+        for ( int id1 = 0; id1 <= 3; id1++ )
+        {
+            for ( int id2 = 0; id2 <= 3; id2++ )
+            {
+                final byte[] ids = {(byte)id1, (byte)id2};
+                final String encoded1 = geodelta.encoder.encodeSubDelta(ids);
+                final byte[] decoded1 = geodelta.encoder.decodeSubDelta(encoded1);
+                final String encoded2 = geodelta.encoder.encodeSubDelta(decoded1);
+                assertEquals(encoded1, encoded2);
+            }
+        }
     }
 */
 
