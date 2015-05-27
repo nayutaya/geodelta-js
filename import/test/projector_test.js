@@ -4,14 +4,6 @@ function test_namespace() {
   assertNotUndefined(geodelta.projector);
 }
 
-function test_lngToMx() {
-  assertRoughlyEquals(+1.0, geodelta.projector.lngToMx(+180.0), 1E-05);
-  assertRoughlyEquals(+0.5, geodelta.projector.lngToMx( +90.0), 1E-05);
-  assertRoughlyEquals( 0.0, geodelta.projector.lngToMx(   0.0), 1E-05);
-  assertRoughlyEquals(-0.5, geodelta.projector.lngToMx( -90.0), 1E-05);
-  assertRoughlyEquals(-1.0, geodelta.projector.lngToMx(-180.0), 1E-05);
-}
-
 function test_myToLat()
 {
   assertRoughlyEquals(+85.0511, geodelta.projector.myToLat(+1.0), 1E-04);

@@ -15,4 +15,9 @@ projector.latToMy = function(lat) {
   return math.atanh(Math.sin(lat * DEG2RAD)) / Math.PI;
 };
 
+// 経度をメルカトルX座標に変換する
+projector.lngToMx = function(lng) {
+  return lng / 180.0;
+};
+
 module.exports = projector;
