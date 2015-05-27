@@ -134,6 +134,27 @@ describe("projector", function() {
   });
 
 /*
+TODO: function test_randomLatLngAndNxy()
+{
+  final double latMax = geodelta.projector.nyToLat(+12.0);
+  final double lngMax = 180.0;
+  final Random r = new Random();
+
+  for ( int i = 0; i < 1000; i++ )
+  {
+    final double lat1 = r.nextDouble() * latMax * 2 - latMax;
+    final double lng1 = r.nextDouble() * lngMax * 2 - lngMax;
+    final double nx = geodelta.projector.lngToNx(lng1);
+    final double ny = geodelta.projector.latToNy(lat1);
+    final double lat2 = geodelta.projector.nyToLat(ny);
+    final double lng2 = geodelta.projector.nxToLng(nx);
+    assertRoughlyEquals(lat1, lat2, 1E-13);
+    assertRoughlyEquals(lng1, lng2, 1E-13);
+  }
+}
+*/
+
+/*
   describe(".TODO", function() {
     it("TODO", function() {
     });
