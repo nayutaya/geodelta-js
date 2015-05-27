@@ -5,11 +5,6 @@ var geodelta = geodelta || {};
 geodelta.projector = geodelta.projector || {};
 
 (function() {
-  // 正規化X座標を経度に変換する
-  geodelta.projector.nxToLng = function(nx) {
-    return geodelta.projector.mxToLng(geodelta.projector.nxToMx(nx));
-  };
-
   // 緯度経度を正規化XY座標に変換する
   geodelta.projector.latLngToNxy = function(lat, lng) {
     return {

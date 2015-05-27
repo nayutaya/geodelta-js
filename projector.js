@@ -70,4 +70,9 @@ projector.nyToLat = function(ny) {
   return projector.myToLat(projector.nyToMy(ny));
 };
 
+// 正規化X座標を経度に変換する
+projector.nxToLng = function(nx) {
+  return projector.mxToLng(projector.nxToMx(nx));
+};
+
 module.exports = projector;

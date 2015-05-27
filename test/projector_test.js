@@ -103,6 +103,14 @@ describe("projector", function() {
     });
   });
 
+  describe(".nxToMx", function() {
+    it("正規化X座標を経度に変換できること", function() {
+      assertRoughlyEquals(projector.mxToLng(projector.nxToMx(+12.0)), projector.nxToLng(+12.0), 1e-15);
+      assertRoughlyEquals(                                       0.0, projector.nxToLng(  0.0), 1e-15);
+      assertRoughlyEquals(projector.mxToLng(projector.nxToMx(-12.0)), projector.nxToLng(-12.0), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
