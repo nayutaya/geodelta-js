@@ -4,14 +4,6 @@ function test_namespace() {
   assertNotUndefined(geodelta.projector);
 }
 
-function test_nyToMy()
-{
-  var max = geodelta.projector.DELTA_HEIGHT();
-  assertRoughlyEquals(+max, geodelta.projector.nyToMy(+12.0), 1E-15);
-  assertRoughlyEquals( 0.0, geodelta.projector.nyToMy(  0.0), 1E-15);
-  assertRoughlyEquals(-max, geodelta.projector.nyToMy(-12.0), 1E-15);
-}
-
 function test_nxToMx()
 {
   assertRoughlyEquals(+1.0, geodelta.projector.nxToMx(+12.0), 1E-15);

@@ -45,4 +45,9 @@ projector.mxToNx = function(mx) {
   return mx * 12.0;
 };
 
+// 正規化Y座標をメルカトルY座標に変換する
+projector.nyToMy = function(ny) {
+  return ny / 12.0 * DELTA_HEIGHT;
+};
+
 module.exports = projector;

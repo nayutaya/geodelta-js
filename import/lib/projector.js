@@ -5,11 +5,6 @@ var geodelta = geodelta || {};
 geodelta.projector = geodelta.projector || {};
 
 (function() {
-  // 正規化Y座標をメルカトルY座標に変換する
-  geodelta.projector.nyToMy = function(ny) {
-    return ny / 12.0 * DELTA_HEIGHT;
-  };
-
   // 正規化X座標をメルカトルX座標に変換する
   geodelta.projector.nxToMx = function(nx) {
     return nx / 12.0;
