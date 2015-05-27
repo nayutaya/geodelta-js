@@ -7,11 +7,6 @@ geodelta.projector = geodelta.projector || {};
 (function() {
   geodelta.projector.DELTA_HEIGHT = function() { return DELTA_HEIGHT };
 
-  // メルカトルY座標を緯度に変換する
-  geodelta.projector.myToLat = function(my) {
-    return Math.asin(tanh(my * Math.PI)) * RAD2DEG;
-  };
-
   // メルカトルX座標を経度に変換する
   geodelta.projector.mxToLng = function(mx) {
     var x = mod(mx, 2.0) - 2.0;

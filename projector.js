@@ -6,7 +6,7 @@ var projector = {};
 // 度をラジアンに変換するための係数
 var DEG2RAD = Math.PI / 180.0;
 // ラジアンを度に変換するための係数
-// var RAD2DEG = 180.0 / Math.PI;
+var RAD2DEG = 180.0 / Math.PI;
 // 一辺を1.0とする正三角形の高さ
 // var DELTA_HEIGHT = Math.sqrt(0.75);
 
@@ -18,6 +18,11 @@ projector.latToMy = function(lat) {
 // 経度をメルカトルX座標に変換する
 projector.lngToMx = function(lng) {
   return lng / 180.0;
+};
+
+// メルカトルY座標を緯度に変換する
+projector.myToLat = function(my) {
+  return Math.asin(math.tanh(my * Math.PI)) * RAD2DEG;
 };
 
 module.exports = projector;

@@ -25,6 +25,14 @@ describe("projector", function() {
     });
   });
 
+  describe(".myToLat", function() {
+    it("メルカトルY座標を緯度に変換できること", function() {
+      assertRoughlyEquals(+85.0511, projector.myToLat(+1.0), 1e-04);
+      assertRoughlyEquals(  0.0,    projector.myToLat( 0.0), 1e-15);
+      assertRoughlyEquals(-85.0511, projector.myToLat(-1.0), 1e-04);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
