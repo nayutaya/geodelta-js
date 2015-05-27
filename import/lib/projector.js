@@ -12,10 +12,6 @@ geodelta.projector = geodelta.projector || {};
   // 一辺を1.0とする正三角形の高さ
   var DELTA_HEIGHT = Math.sqrt(0.75);
 
-  // 双曲線正接を求める
-  var tanh = function(x) {
-    return sinh(x) / cosh(x);
-  };
   // 双曲線逆正接を求める
   var atanh = function(x) {
     return Math.log((1 + x) / (1 - x)) / 2;

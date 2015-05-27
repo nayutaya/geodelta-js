@@ -22,4 +22,14 @@ describe("math", function() {
       assert(Math.abs(math.cosh(+2.0) - +3.7621956910836314) < 1e-15);
     });
   });
+
+  describe(".tanh", function() {
+    it("", function() {
+      assert(Math.abs(math.tanh(-2.0) - -0.9640275800758169) < 1e-15);
+      assert(Math.abs(math.tanh(-1.0) - -0.7615941559557649) < 1e-15);
+      assert.equal(0.0, math.tanh(0.0));
+      assert(Math.abs(math.tanh(+1.0) - +0.7615941559557649) < 1e-15);
+      assert(Math.abs(math.tanh(+2.0) - +0.9640275800758169) < 1e-15);
+    });
+  });
 });
