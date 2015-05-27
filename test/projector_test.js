@@ -95,6 +95,14 @@ describe("projector", function() {
     });
   });
 
+  describe(".nyToLat", function() {
+    it("正規化Y座標を緯度に変換できること", function() {
+      assertRoughlyEquals(projector.myToLat(projector.nyToMy(+12.0)), projector.nyToLat(+12.0), 1e-15);
+      assertRoughlyEquals(                                       0.0, projector.nyToLat(  0.0), 1e-15);
+      assertRoughlyEquals(projector.myToLat(projector.nyToMy(-12.0)), projector.nyToLat(-12.0), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
