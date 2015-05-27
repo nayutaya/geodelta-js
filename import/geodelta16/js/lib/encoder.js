@@ -8,20 +8,6 @@ geodelta.encoder = geodelta.encoder || {};
   var SUB_DELTA_TABLE1  = ["K", "M", "N", "P"];
   var SUB_DELTA_TABLE2  = [["2", "3", "4", "5"], ["6", "7", "8", "A"], ["B", "C", "D", "E"], ["F", "G", "H", "J"]];
 
-  // ワールドデルタコードをデコードする
-  geodelta.encoder.decodeWorldDelta = function(code) {
-    // FIXME: indexOf
-    for ( var i = 0, len = WORLD_DELTA_TABLE.length; i < len; i++ )
-    {
-      if ( WORLD_DELTA_TABLE[i] == code )
-      {
-        return i;
-      }
-    }
-    // TODO: throw new IllegalArgumentException();
-    return null;
-  };
-
   // サブデルタID列をエンコードする
   var _encodeSubDelta = function(ids, start) {
     var result = "";
