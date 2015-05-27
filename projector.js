@@ -75,4 +75,12 @@ projector.nxToLng = function(nx) {
   return projector.mxToLng(projector.nxToMx(nx));
 };
 
+// 緯度経度を正規化XY座標に変換する
+projector.latLngToNxy = function(lat, lng) {
+  return {
+    nx: projector.lngToNx(lng),
+    ny: projector.latToNy(lat)
+  };
+};
+
 module.exports = projector;

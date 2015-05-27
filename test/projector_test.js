@@ -111,6 +111,17 @@ describe("projector", function() {
     });
   });
 
+  describe(".latLngToNxy", function() {
+    it("緯度経度を正規化XY座標に変換できること", function() {
+      assertRoughlyEquals(projector.lngToNx(+180.0000), projector.latLngToNxy(+82.4674, +180.0).nx, 1e-15);
+      assertRoughlyEquals(projector.latToNy( +82.4674), projector.latLngToNxy(+82.4674, +180.0).ny, 1e-15);
+      assertRoughlyEquals(0.0, projector.latLngToNxy(0.0, 0.0).nx, 1e-15);
+      assertRoughlyEquals(0.0, projector.latLngToNxy(0.0, 0.0).ny, 1e-15);
+      assertRoughlyEquals(projector.lngToNx(-180.0000), projector.latLngToNxy(-82.4674, -180.0).nx, 1e-15);
+      assertRoughlyEquals(projector.latToNy( -82.4674), projector.latLngToNxy(-82.4674, -180.0).ny, 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
