@@ -4,32 +4,6 @@ function test_namespace_encoder() {
   assertNotUndefined(geodelta.encoder);
 }
 
-function test_encode()
-{
-  assertEquals("Z",   geodelta.encoder.encode([0]));
-  assertEquals("ZM",  geodelta.encoder.encode([0, 1]));
-  assertEquals("Z8",  geodelta.encoder.encode([0, 1, 2]));
-  assertEquals("Z8P", geodelta.encoder.encode([0, 1, 2, 3]));
-  assertEquals("R",   geodelta.encoder.encode([7]));
-  assertEquals("RP",  geodelta.encoder.encode([7, 3]));
-  assertEquals("RH",  geodelta.encoder.encode([7, 3, 2]));
-  assertEquals("RHM", geodelta.encoder.encode([7, 3, 2, 1]));
-}
-
-/*
-    @Test(expected = IllegalArgumentException.class)
-    public void encode__invalidArg1()
-    {
-        geodelta.encoder.encode(null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void encode__invalidArg2()
-    {
-        geodelta.encoder.encode(new byte[0]);
-    }
-*/
-
 function test_decode()
 {
   assertArrayEquals([0],          geodelta.encoder.decode("Z"));

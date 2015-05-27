@@ -235,6 +235,33 @@ function test_encodeWorldDelta__invalidArg2()
     }
 */
 
+  describe(".encode", function() {
+    it("デルタID列をエンコードできること", function() {
+      assert.equal("Z",   encoder.encode([0]));
+      assert.equal("ZM",  encoder.encode([0, 1]));
+      assert.equal("Z8",  encoder.encode([0, 1, 2]));
+      assert.equal("Z8P", encoder.encode([0, 1, 2, 3]));
+      assert.equal("R",   encoder.encode([7]));
+      assert.equal("RP",  encoder.encode([7, 3]));
+      assert.equal("RH",  encoder.encode([7, 3, 2]));
+      assert.equal("RHM", encoder.encode([7, 3, 2, 1]));
+    });
+  });
+
+/*
+    @Test(expected = IllegalArgumentException.class)
+    public void encode__invalidArg1()
+    {
+        geodelta.encoder.encode(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void encode__invalidArg2()
+    {
+        geodelta.encoder.encode(new byte[0]);
+    }
+*/
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
