@@ -12,10 +12,6 @@ geodelta.projector = geodelta.projector || {};
   // 一辺を1.0とする正三角形の高さ
   var DELTA_HEIGHT = Math.sqrt(0.75);
 
-  // 双曲線正弦を求める
-  var sinh = function(x) {
-    return (Math.exp(x) - Math.exp(-x)) / 2.0;
-  };
   // 双曲線余弦を求める
   var cosh = function(x) {
     return (Math.exp(x) + Math.exp(-x)) / 2.0;
