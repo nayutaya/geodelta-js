@@ -4,68 +4,6 @@ function test_namespace() {
   assertNotUndefined(geodelta.projector);
 }
 
-function test_latToMy() {
-  assertRoughlyEquals(+1.0, geodelta.projector.latToMy(+85.0511), 1E-05);
-  assertRoughlyEquals( 0.0, geodelta.projector.latToMy(  0.0000), 1E-05);
-  assertRoughlyEquals(-1.0, geodelta.projector.latToMy(-85.0511), 1E-05);
-}
-
-function test_lngToMx() {
-  assertRoughlyEquals(+1.0, geodelta.projector.lngToMx(+180.0), 1E-05);
-  assertRoughlyEquals(+0.5, geodelta.projector.lngToMx( +90.0), 1E-05);
-  assertRoughlyEquals( 0.0, geodelta.projector.lngToMx(   0.0), 1E-05);
-  assertRoughlyEquals(-0.5, geodelta.projector.lngToMx( -90.0), 1E-05);
-  assertRoughlyEquals(-1.0, geodelta.projector.lngToMx(-180.0), 1E-05);
-}
-
-function test_myToLat()
-{
-  assertRoughlyEquals(+85.0511, geodelta.projector.myToLat(+1.0), 1E-04);
-  assertRoughlyEquals(0.0,      geodelta.projector.myToLat( 0.0), 1E-15);
-  assertRoughlyEquals(-85.0511, geodelta.projector.myToLat(-1.0), 1E-04);
-}
-
-function test_mxToLng()
-{
-  assertRoughlyEquals( -90.0, geodelta.projector.mxToLng(+1.5), 1E-15);
-  assertRoughlyEquals(-180.0, geodelta.projector.mxToLng(+1.0), 1E-15);
-  assertRoughlyEquals( +90.0, geodelta.projector.mxToLng(+0.5), 1E-15);
-  assertRoughlyEquals(   0.0, geodelta.projector.mxToLng( 0.0), 1E-15);
-  assertRoughlyEquals( -90.0, geodelta.projector.mxToLng(-0.5), 1E-15);
-  assertRoughlyEquals(-180.0, geodelta.projector.mxToLng(-1.0), 1E-15);
-  assertRoughlyEquals( +90.0, geodelta.projector.mxToLng(-1.5), 1E-15);
-}
-
-function test_myToNy()
-{
-  var max = geodelta.projector.DELTA_HEIGHT();
-  assertRoughlyEquals(+12.0, geodelta.projector.myToNy(+max), 1E-15);
-  assertRoughlyEquals(  0.0, geodelta.projector.myToNy( 0.0), 1E-15);
-  assertRoughlyEquals(-12.0, geodelta.projector.myToNy(-max), 1E-15);
-}
-
-function test_mxToNx()
-{
-  assertRoughlyEquals(+12.0, geodelta.projector.mxToNx(+1.0), 1E-15);
-  assertRoughlyEquals(  0.0, geodelta.projector.mxToNx( 0.0), 1E-15);
-  assertRoughlyEquals(-12.0, geodelta.projector.mxToNx(-1.0), 1E-15);
-}
-
-function test_nyToMy()
-{
-  var max = geodelta.projector.DELTA_HEIGHT();
-  assertRoughlyEquals(+max, geodelta.projector.nyToMy(+12.0), 1E-15);
-  assertRoughlyEquals( 0.0, geodelta.projector.nyToMy(  0.0), 1E-15);
-  assertRoughlyEquals(-max, geodelta.projector.nyToMy(-12.0), 1E-15);
-}
-
-function test_nxToMx()
-{
-  assertRoughlyEquals(+1.0, geodelta.projector.nxToMx(+12.0), 1E-15);
-  assertRoughlyEquals( 0.0, geodelta.projector.nxToMx(  0.0), 1E-15);
-  assertRoughlyEquals(-1.0, geodelta.projector.nxToMx(-12.0), 1E-15);
-}
-
 function test_latToNy()
 {
   assertRoughlyEquals(0.0, geodelta.projector.latToNy(0.0), 1E-15);

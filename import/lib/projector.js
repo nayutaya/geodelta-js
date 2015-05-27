@@ -5,60 +5,6 @@ var geodelta = geodelta || {};
 geodelta.projector = geodelta.projector || {};
 
 (function() {
-  // 度をラジアンに変換するための係数
-  var DEG2RAD = Math.PI / 180.0;
-  // ラジアンを度に変換するための係数
-  var RAD2DEG = 180.0 / Math.PI;
-  // 一辺を1.0とする正三角形の高さ
-  var DELTA_HEIGHT = Math.sqrt(0.75);
-
-  geodelta.projector.DELTA_HEIGHT = function() { return DELTA_HEIGHT };
-
-  // 緯度をメルカトルY座標に変換する
-  geodelta.projector.latToMy = function(lat) {
-    return atanh(Math.sin(lat * DEG2RAD)) / Math.PI;
-  };
-
-  // 経度をメルカトルX座標に変換する
-  geodelta.projector.lngToMx = function(lng) {
-    return lng / 180.0;
-  };
-
-  // メルカトルY座標を緯度に変換する
-  geodelta.projector.myToLat = function(my) {
-    return Math.asin(tanh(my * Math.PI)) * RAD2DEG;
-  };
-
-  // メルカトルX座標を経度に変換する
-  geodelta.projector.mxToLng = function(mx) {
-    var x = mod(mx, 2.0) - 2.0;
-    if ( x < -1.0 )
-    {
-      x += 2.0;
-    }
-    return x * 180.0;
-  };
-
-  // メルカトルY座標を正規化Y座標に変換する
-  geodelta.projector.myToNy = function(my) {
-    return my / DELTA_HEIGHT * 12.0;
-  };
-
-  // メルカトルX座標を正規化X座標に変換する
-  geodelta.projector.mxToNx = function(mx) {
-    return mx * 12.0;
-  };
-
-  // 正規化Y座標をメルカトルY座標に変換する
-  geodelta.projector.nyToMy = function(ny) {
-    return ny / 12.0 * DELTA_HEIGHT;
-  };
-
-  // 正規化X座標をメルカトルX座標に変換する
-  geodelta.projector.nxToMx = function(nx) {
-    return nx / 12.0;
-  };
-
   // 緯度を正規化Y座標系に変換する
   geodelta.projector.latToNy = function(lat) {
     return geodelta.projector.myToNy(geodelta.projector.latToMy(lat));
