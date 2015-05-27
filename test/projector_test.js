@@ -71,6 +71,14 @@ describe("projector", function() {
     });
   });
 
+  describe(".nxToMx", function() {
+    it("正規化X座標をメルカトルX座標に変換できること", function() {
+      assertRoughlyEquals(+1.0, projector.nxToMx(+12.0), 1e-15);
+      assertRoughlyEquals( 0.0, projector.nxToMx(  0.0), 1e-15);
+      assertRoughlyEquals(-1.0, projector.nxToMx(-12.0), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
