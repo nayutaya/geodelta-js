@@ -5,19 +5,8 @@ var geodelta = geodelta || {};
 geodelta.projector = geodelta.projector || {};
 
 (function() {
-  // 度をラジアンに変換するための係数
-  var DEG2RAD = Math.PI / 180.0;
-  // ラジアンを度に変換するための係数
-  var RAD2DEG = 180.0 / Math.PI;
-  // 一辺を1.0とする正三角形の高さ
-  var DELTA_HEIGHT = Math.sqrt(0.75);
-
   geodelta.projector.DELTA_HEIGHT = function() { return DELTA_HEIGHT };
 
-  // 緯度をメルカトルY座標に変換する
-  geodelta.projector.latToMy = function(lat) {
-    return atanh(Math.sin(lat * DEG2RAD)) / Math.PI;
-  };
 
   // 経度をメルカトルX座標に変換する
   geodelta.projector.lngToMx = function(lng) {
