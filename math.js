@@ -23,8 +23,6 @@ math.atanh = function(x) {
 
 // 剰余を求める
 math.mod = function(a, b) {
-  return a % b;
-/*
   var val = a;
   while ( val >= b ) {
     val -= b;
@@ -33,7 +31,6 @@ math.mod = function(a, b) {
     val += b;
   }
   return val;
-*/
 };
 
 module.exports = math;
