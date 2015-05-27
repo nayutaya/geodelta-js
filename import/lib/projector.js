@@ -12,36 +12,6 @@ geodelta.projector = geodelta.projector || {};
   // 一辺を1.0とする正三角形の高さ
   var DELTA_HEIGHT = Math.sqrt(0.75);
 
-  // 双曲線正弦を求める
-  var sinh = function(x) {
-    return (Math.exp(x) - Math.exp(-x)) / 2.0;
-  };
-  // 双曲線余弦を求める
-  var cosh = function(x) {
-    return (Math.exp(x) + Math.exp(-x)) / 2.0;
-  };
-  // 双曲線正接を求める
-  var tanh = function(x) {
-    return sinh(x) / cosh(x);
-  };
-  // 双曲線逆正接を求める
-  var atanh = function(x) {
-    return Math.log((1 + x) / (1 - x)) / 2;
-  };
-  // 剰余を求める
-  var mod = function(a, b) {
-    var val = a;
-    while ( val >= b )
-    {
-      val -= b;
-    }
-    while ( val < 0.0 )
-    {
-      val += b;
-    }
-    return val;
-  };
-
   geodelta.projector.DELTA_HEIGHT = function() { return DELTA_HEIGHT };
 
   // 緯度をメルカトルY座標に変換する
