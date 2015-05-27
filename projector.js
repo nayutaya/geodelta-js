@@ -8,7 +8,8 @@ var DEG2RAD = Math.PI / 180.0;
 // ラジアンを度に変換するための係数
 var RAD2DEG = 180.0 / Math.PI;
 // 一辺を1.0とする正三角形の高さ
-// var DELTA_HEIGHT = Math.sqrt(0.75);
+var DELTA_HEIGHT = Math.sqrt(0.75);
+projector.DELTA_HEIGHT = function() { return DELTA_HEIGHT };
 
 // 緯度をメルカトルY座標に変換する
 projector.latToMy = function(lat) {
@@ -32,6 +33,11 @@ projector.mxToLng = function(mx) {
     x += 2.0;
   }
   return x * 180.0;
+};
+
+// メルカトルY座標を正規化Y座標に変換する
+projector.myToNy = function(my) {
+  return my / DELTA_HEIGHT * 12.0;
 };
 
 module.exports = projector;

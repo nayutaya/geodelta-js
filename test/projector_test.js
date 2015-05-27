@@ -45,6 +45,15 @@ describe("projector", function() {
     });
   });
 
+  describe(".myToNy", function() {
+    it("メルカトルY座標を正規化Y座標に変換できること", function() {
+      var max = projector.DELTA_HEIGHT();
+      assertRoughlyEquals(+12.0, projector.myToNy(+max), 1e-15);
+      assertRoughlyEquals(  0.0, projector.myToNy( 0.0), 1e-15);
+      assertRoughlyEquals(-12.0, projector.myToNy(-max), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
