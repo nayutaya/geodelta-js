@@ -33,6 +33,18 @@ describe("projector", function() {
     });
   });
 
+  describe(".mxToLng", function() {
+    it("メルカトルX座標を経度に変換できること", function() {
+      assertRoughlyEquals( -90.0, projector.mxToLng(+1.5), 1e-15);
+      assertRoughlyEquals(-180.0, projector.mxToLng(+1.0), 1e-15);
+      assertRoughlyEquals( +90.0, projector.mxToLng(+0.5), 1e-15);
+      assertRoughlyEquals(   0.0, projector.mxToLng( 0.0), 1e-15);
+      assertRoughlyEquals( -90.0, projector.mxToLng(-0.5), 1e-15);
+      assertRoughlyEquals(-180.0, projector.mxToLng(-1.0), 1e-15);
+      assertRoughlyEquals( +90.0, projector.mxToLng(-1.5), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {

@@ -4,17 +4,6 @@ function test_namespace() {
   assertNotUndefined(geodelta.projector);
 }
 
-function test_mxToLng()
-{
-  assertRoughlyEquals( -90.0, geodelta.projector.mxToLng(+1.5), 1E-15);
-  assertRoughlyEquals(-180.0, geodelta.projector.mxToLng(+1.0), 1E-15);
-  assertRoughlyEquals( +90.0, geodelta.projector.mxToLng(+0.5), 1E-15);
-  assertRoughlyEquals(   0.0, geodelta.projector.mxToLng( 0.0), 1E-15);
-  assertRoughlyEquals( -90.0, geodelta.projector.mxToLng(-0.5), 1E-15);
-  assertRoughlyEquals(-180.0, geodelta.projector.mxToLng(-1.0), 1E-15);
-  assertRoughlyEquals( +90.0, geodelta.projector.mxToLng(-1.5), 1E-15);
-}
-
 function test_myToNy()
 {
   var max = geodelta.projector.DELTA_HEIGHT();
