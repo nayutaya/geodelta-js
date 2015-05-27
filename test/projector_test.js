@@ -80,10 +80,18 @@ describe("projector", function() {
   });
 
   describe(".latToNy", function() {
-    it("緯度を正規化Y座標系に変換できること", function() {
+    it("緯度を正規化Y座標に変換できること", function() {
       assertRoughlyEquals(projector.myToNy(projector.latToMy(+82.4674)), projector.latToNy(+82.4674), 1e-15);
       assertRoughlyEquals(                                          0.0, projector.latToNy(  0.0   ), 1e-15);
       assertRoughlyEquals(projector.myToNy(projector.latToMy(-82.4674)), projector.latToNy(-82.4674), 1e-15);
+    });
+  });
+
+  describe(".lngToNx", function() {
+    it("経度を正規化X座標に変換できること", function() {
+      assertRoughlyEquals(projector.mxToNx(projector.lngToMx(+180.0)), projector.lngToNx(+180.0), 1e-15);
+      assertRoughlyEquals(                                        0.0, projector.lngToNx(   0.0), 1e-15);
+      assertRoughlyEquals(projector.mxToNx(projector.lngToMx(-180.0)), projector.lngToNx(-180.0), 1e-15);
     });
   });
 

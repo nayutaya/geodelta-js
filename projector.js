@@ -55,9 +55,14 @@ projector.nxToMx = function(nx) {
   return nx / 12.0;
 };
 
-// 緯度を正規化Y座標系に変換する
+// 緯度を正規化Y座標に変換する
 projector.latToNy = function(lat) {
   return projector.myToNy(projector.latToMy(lat));
+};
+
+// 経度を正規化X座標に変換する
+projector.lngToNx = function(lng) {
+  return projector.mxToNx(projector.lngToMx(lng));
 };
 
 module.exports = projector;
