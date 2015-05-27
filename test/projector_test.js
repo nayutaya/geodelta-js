@@ -122,6 +122,17 @@ describe("projector", function() {
     });
   });
 
+  describe(".nxyToLatLng", function() {
+    it("正規化XY座標を緯度経度に変換できること", function() {
+      assertRoughlyEquals(projector.nyToLat(+12.0), projector.nxyToLatLng(+12.0, +12.0).lat, 1e-15);
+      assertRoughlyEquals(projector.nxToLng(+12.0), projector.nxyToLatLng(+12.0, +12.0).lng, 1e-15);
+      assertRoughlyEquals(0.0, projector.nxyToLatLng(0.0, 0.0).lat, 1e-15);
+      assertRoughlyEquals(0.0, projector.nxyToLatLng(0.0, 0.0).lng, 1e-15);
+      assertRoughlyEquals(projector.nyToLat(-12.0), projector.nxyToLatLng(-12.0, -12.0).lat, 1e-15);
+      assertRoughlyEquals(projector.nxToLng(-12.0), projector.nxyToLatLng(-12.0, -12.0).lng, 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
