@@ -4,18 +4,6 @@ function test_namespace_encoder() {
   assertNotUndefined(geodelta.encoder);
 }
 
-function test_encodeWorldDelta()
-{
-  assertEquals("Z", geodelta.encoder.encodeWorldDelta(0));
-  assertEquals("Y", geodelta.encoder.encodeWorldDelta(1));
-  assertEquals("X", geodelta.encoder.encodeWorldDelta(2));
-  assertEquals("W", geodelta.encoder.encodeWorldDelta(3));
-  assertEquals("V", geodelta.encoder.encodeWorldDelta(4));
-  assertEquals("T", geodelta.encoder.encodeWorldDelta(5));
-  assertEquals("S", geodelta.encoder.encodeWorldDelta(6));
-  assertEquals("R", geodelta.encoder.encodeWorldDelta(7));
-}
-
 function test_encodeWorldDelta__invalidArg1()
 {
   try

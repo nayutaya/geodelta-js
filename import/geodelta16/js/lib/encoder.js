@@ -5,18 +5,8 @@ var geodelta = geodelta || {};
 geodelta.encoder = geodelta.encoder || {};
 
 (function() {
-  var WORLD_DELTA_TABLE = ["Z", "Y", "X", "W", "V", "T", "S", "R"];
   var SUB_DELTA_TABLE1  = ["K", "M", "N", "P"];
   var SUB_DELTA_TABLE2  = [["2", "3", "4", "5"], ["6", "7", "8", "A"], ["B", "C", "D", "E"], ["F", "G", "H", "J"]];
-
-  // ワールドデルタIDをエンコードする
-  geodelta.encoder.encodeWorldDelta = function(id) {
-    if ( id < 0 || id > 7 )
-    {
-      throw "invalid argument (id)";
-    }
-    return WORLD_DELTA_TABLE[id];
-  };
 
   // ワールドデルタコードをデコードする
   geodelta.encoder.decodeWorldDelta = function(code) {
