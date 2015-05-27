@@ -55,4 +55,40 @@ projector.nxToMx = function(nx) {
   return nx / 12.0;
 };
 
+// 緯度を正規化Y座標に変換する
+projector.latToNy = function(lat) {
+  return projector.myToNy(projector.latToMy(lat));
+};
+
+// 経度を正規化X座標に変換する
+projector.lngToNx = function(lng) {
+  return projector.mxToNx(projector.lngToMx(lng));
+};
+
+// 正規化Y座標を緯度に変換する
+projector.nyToLat = function(ny) {
+  return projector.myToLat(projector.nyToMy(ny));
+};
+
+// 正規化X座標を経度に変換する
+projector.nxToLng = function(nx) {
+  return projector.mxToLng(projector.nxToMx(nx));
+};
+
+// 緯度経度を正規化XY座標に変換する
+projector.latLngToNxy = function(lat, lng) {
+  return {
+    nx: projector.lngToNx(lng),
+    ny: projector.latToNy(lat)
+  };
+};
+
+// 正規化XY座標を緯度経度に変換する
+projector.nxyToLatLng = function(nx, ny) {
+  return {
+    lat: projector.nyToLat(ny),
+    lng: projector.nxToLng(nx)
+  };
+};
+
 module.exports = projector;
