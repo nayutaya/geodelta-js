@@ -32,4 +32,37 @@ describe("math", function() {
       assert(Math.abs(math.tanh(+2.0) - +0.9640275800758169) < 1e-15);
     });
   });
+
+  describe(".atanh", function() {
+    it("", function() {
+      assert(Math.abs(math.atanh(-0.2) - -0.2027325540540822) < 1e-15);
+      assert(Math.abs(math.atanh(-0.1) - -0.1003353477310756) < 1e-15);
+      assert.equal(0.0, math.atanh(0.0));
+      assert(Math.abs(math.atanh(+0.1) - +0.1003353477310756) < 1e-15);
+      assert(Math.abs(math.atanh(+0.2) - +0.2027325540540822) < 1e-15);
+    });
+  });
+
+  describe(".atanh", function() {
+    it("", function() {
+      assert.equal(0, math.mod(0, 1));
+      assert.equal(0, math.mod(1, 1));
+
+      assert.equal(1, math.mod(+10, +3));
+      assert.equal(2, math.mod(+10, +4));
+      assert.equal(0, math.mod(+10, +5));
+
+      // assert.equal(-2, math.mod(+10, -3));
+      // assert.equal(-2, math.mod(+10, -4));
+      // assert.equal( 0, math.mod(+10, -5));
+
+      // assert.equal(2, math.mod(-10, +3));
+      // assert.equal(2, math.mod(-10, +4));
+      assert.equal(0, math.mod(-10, +5));
+
+      assert.equal(-1, math.mod(-10, -3));
+      assert.equal(-2, math.mod(-10, -4));
+      assert.equal( 0, math.mod(-10, -5));
+    });
+  });
 });
