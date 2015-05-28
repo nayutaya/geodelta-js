@@ -22,15 +22,6 @@ var geodelta = geodelta || {};
 
 /*
   // 指定された座標(x, y)を指定されたサブデルタID内における正規化座標系に平行移動する
-  self.transformUpperDelta = function(id, x, y) {
-    final double[] xs = {-3.0, -3.0, -6.0, -0.0};
-    final double[] ys = {-0.0, -6.0, -0.0, -0.0};
-    final double xx = (x + xs[id]) * 2;
-    final double yy = (y + ys[id]) * 2;
-    return new double[] {xx, yy};
-  };
-
-  // 指定された座標(x, y)を指定されたサブデルタID内における正規化座標系に平行移動する
   self.transformLowerDelta = function(id, x, y) {
     final double[] xs = {-3.0, -3.0, -0.0, -6.0};
     final double[] ys = {-6.0, -0.0, -6.0, -6.0};

@@ -163,6 +163,15 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".transformUpperDelta", function() {
+    it("TODO", function() {
+      assertArrayEquals([+6.0, +8.0], delta_geometry.transformUpperDelta(0, +6.0, +4.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformUpperDelta(1, +6.0, +8.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformUpperDelta(2, +9.0, +2.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformUpperDelta(3, +3.0, +2.0), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {

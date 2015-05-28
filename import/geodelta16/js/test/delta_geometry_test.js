@@ -5,14 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_transformUpperDelta()
-  {
-    assertArrayEquals([+6.0, +8.0], geodelta.delta_geometry.transformUpperDelta(0, +6.0, +4.0), 1E-15);
-    assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.transformUpperDelta(1, +6.0, +8.0), 1E-15);
-    assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.transformUpperDelta(2, +9.0, +2.0), 1E-15);
-    assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.transformUpperDelta(3, +3.0, +2.0), 1E-15);
-  }
-
   function test_transformLowerDelta()
   {
     assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.transformLowerDelta(0, +6.0,  +8.0), 1E-15);
