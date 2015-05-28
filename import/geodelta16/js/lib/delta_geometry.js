@@ -21,25 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // FIXME: メソッド名を「getDeltaId」に変更する
-  // 指定された座標(x, y)に該当するデルタのデルタID列を取得する
-  self.getDeltaIds = function(x, y, level) {
-    final byte[] ids = new byte[level];
-
-    ids[0] = (byte)getWorldDeltaId(x, y);
-    double[] xxyy = transformWorldDelta(ids[0], x, y);
-    boolean upper = isUpperWorldDelta(ids[0]);
-
-    for ( int i = 1; i < level; i++ )
-    {
-      ids[i] = (byte)(upper ? getUpperDeltaId(xxyy[0], xxyy[1]) : getLowerDeltaId(xxyy[0], xxyy[1]));
-      xxyy = (upper ? transformUpperDelta(ids[i], xxyy[0], xxyy[1]) : transformLowerDelta(ids[i], xxyy[0], xxyy[1]));
-      upper = isUpperSubDelta(upper, ids[i]);
-    }
-
-    return ids;
-  };
-
   // 指定されたワールドデルタIDの中心座標を取得する
   self.getWorldDeltaCenter = function(id) {
     final double[] xs = {+0.0, +6.0, +12.0, +18.0, +0.0, +6.0, +12.0, +18.0};

@@ -5,55 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_getDeltaIds__level1()
-  {
-    assertArrayEquals([0], geodelta.delta_geometry.getDeltaIds( 0.0, +6.0, 1));
-    assertArrayEquals([1], geodelta.delta_geometry.getDeltaIds( 6.0, +6.0, 1));
-    assertArrayEquals([2], geodelta.delta_geometry.getDeltaIds(12.0, +6.0, 1));
-    assertArrayEquals([3], geodelta.delta_geometry.getDeltaIds(18.0, +6.0, 1));
-    assertArrayEquals([4], geodelta.delta_geometry.getDeltaIds( 0.0, -6.0, 1));
-    assertArrayEquals([5], geodelta.delta_geometry.getDeltaIds( 6.0, -6.0, 1));
-    assertArrayEquals([6], geodelta.delta_geometry.getDeltaIds(12.0, -6.0, 1));
-    assertArrayEquals([7], geodelta.delta_geometry.getDeltaIds(18.0, -6.0, 1));
-  }
-
-  function test_getDeltaIds__level2()
-  {
-    assertArrayEquals([0, 0], geodelta.delta_geometry.getDeltaIds( +0.0,  +8.0, 2));
-    assertArrayEquals([0, 1], geodelta.delta_geometry.getDeltaIds( +0.0,  +4.0, 2));
-    assertArrayEquals([0, 2], geodelta.delta_geometry.getDeltaIds( -3.0, +10.0, 2));
-    assertArrayEquals([0, 3], geodelta.delta_geometry.getDeltaIds( +3.0, +10.0, 2));
-    assertArrayEquals([1, 0], geodelta.delta_geometry.getDeltaIds( +6.0,  +4.0, 2));
-    assertArrayEquals([1, 1], geodelta.delta_geometry.getDeltaIds( +6.0,  +8.0, 2));
-    assertArrayEquals([1, 2], geodelta.delta_geometry.getDeltaIds( +9.0,  +2.0, 2));
-    assertArrayEquals([1, 3], geodelta.delta_geometry.getDeltaIds( +3.0,  +2.0, 2));
-    assertArrayEquals([2, 2], geodelta.delta_geometry.getDeltaIds( +9.0, +10.0, 2));
-    assertArrayEquals([3, 3], geodelta.delta_geometry.getDeltaIds(+15.0,  +2.0, 2));
-
-    assertArrayEquals([4, 0], geodelta.delta_geometry.getDeltaIds( +0.0,  -8.0, 2));
-    assertArrayEquals([4, 1], geodelta.delta_geometry.getDeltaIds( +0.0,  -4.0, 2));
-    assertArrayEquals([4, 2], geodelta.delta_geometry.getDeltaIds( +3.0, -10.0, 2));
-    assertArrayEquals([4, 3], geodelta.delta_geometry.getDeltaIds( -3.0, -10.0, 2));
-    assertArrayEquals([5, 0], geodelta.delta_geometry.getDeltaIds( +6.0,  -4.0, 2));
-    assertArrayEquals([5, 1], geodelta.delta_geometry.getDeltaIds( +6.0,  -8.0, 2));
-    assertArrayEquals([5, 2], geodelta.delta_geometry.getDeltaIds( +3.0,  -2.0, 2));
-    assertArrayEquals([5, 3], geodelta.delta_geometry.getDeltaIds( +9.0,  -2.0, 2));
-    assertArrayEquals([6, 2], geodelta.delta_geometry.getDeltaIds(+15.0, -10.0, 2));
-    assertArrayEquals([7, 3], geodelta.delta_geometry.getDeltaIds(+21.0,  -2.0, 2));
-  }
-
-  function test_getDeltaIds__level3()
-  {
-    assertArrayEquals([0, 0, 0], geodelta.delta_geometry.getDeltaIds(+0.0, +8.0, 3));
-    assertArrayEquals([1, 0, 0], geodelta.delta_geometry.getDeltaIds(+6.0, +4.0, 3));
-  }
-
-  function test_getDeltaIds__level4()
-  {
-    assertArrayEquals([0, 0, 0, 0], geodelta.delta_geometry.getDeltaIds(+0.0, +8.0, 4));
-    assertArrayEquals([1, 0, 0, 0], geodelta.delta_geometry.getDeltaIds(+6.0, +4.0, 4));
-  }
-
   function test_getWorldDeltaCenter()
   {
     assertArrayEquals([ +0.0, +8.0], geodelta.delta_geometry.getWorldDeltaCenter(0), 1E-15);
