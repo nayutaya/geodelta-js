@@ -6,6 +6,8 @@ describe("delta_geometry", function() {
   var assertEquals = function(expected, actual) { expect(actual).to.eql(expected); };
   // TODO: 許容誤差を考慮する。
   var assertArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
+  // TODO: 許容誤差を考慮する。
+  var assertArrayArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
 
   describe(".getWorldDeltaId", function() {
     it("座標をワールドデルタIDに変換する", function() {
@@ -305,7 +307,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".getCoordinates", function() {
-    it("（レベル1）", function() {
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル1）", function() {
       var expected1 = [
           [+0.0,  +8.0],
           [+0.0,  +0.0], // +0.0, -8.0
@@ -338,7 +340,7 @@ describe("delta_geometry", function() {
       ];
       assertArrayArrayEquals(expected4, delta_geometry.getCoordinates([5]), 1e-15);
     });
-    it("（レベル2）", function() {
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル2）", function() {
       var expected1 = [
           [ +0.0,  +8.0],
           [ +0.0, +12.0], // +0.0, +4.0
@@ -403,7 +405,7 @@ describe("delta_geometry", function() {
       ];
       assertArrayArrayEquals(expected8, delta_geometry.getCoordinates([4, 3]), 1e-15);
     });
-    it("（レベル3）", function() {
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル3）", function() {
       var expected1 = [
           [ +0.0, +8.0],
           [ +0.0, +6.0], // +0.0, -2.0
