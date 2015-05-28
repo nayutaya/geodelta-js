@@ -247,6 +247,15 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".getLowerSubDeltaDistance", function() {
+    it("指定されたサブデルタIDの下向き上位デルタからの距離を取得する", function() {
+      assertArrayEquals([+0.0, +0.0], delta_geometry.getLowerSubDeltaDistance(0), 1e-15);
+      assertArrayEquals([+0.0, -4.0], delta_geometry.getLowerSubDeltaDistance(1), 1e-15);
+      assertArrayEquals([-3.0, +2.0], delta_geometry.getLowerSubDeltaDistance(2), 1e-15);
+      assertArrayEquals([+3.0, +2.0], delta_geometry.getLowerSubDeltaDistance(3), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
