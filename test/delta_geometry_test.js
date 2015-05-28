@@ -1,5 +1,4 @@
 
-var assert = require("assert");
 var expect = require("expect.js");
 var delta_geometry = require("../lib/delta_geometry.js");
 
@@ -96,6 +95,19 @@ describe("delta_geometry", function() {
       assertEquals(0, delta_geometry.getLowerDeltaId( 6.0,  6.0));
       assertEquals(0, delta_geometry.getLowerDeltaId( 7.5,  9.0));
       assertEquals(0, delta_geometry.getLowerDeltaId( 9.0,  6.0));
+    });
+  });
+
+  describe(".isUpperWorldDelta", function() {
+    it("指定されたワールドデルタIDが上向きかどうか判定できること", function() {
+      assertEquals(false, delta_geometry.isUpperWorldDelta(0));
+      assertEquals(true,  delta_geometry.isUpperWorldDelta(1));
+      assertEquals(false, delta_geometry.isUpperWorldDelta(2));
+      assertEquals(true,  delta_geometry.isUpperWorldDelta(3));
+      assertEquals(true,  delta_geometry.isUpperWorldDelta(4));
+      assertEquals(false, delta_geometry.isUpperWorldDelta(5));
+      assertEquals(true,  delta_geometry.isUpperWorldDelta(6));
+      assertEquals(false, delta_geometry.isUpperWorldDelta(7));
     });
   });
 

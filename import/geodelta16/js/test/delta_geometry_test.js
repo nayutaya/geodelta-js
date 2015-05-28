@@ -5,18 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_isUpperWorldDelta()
-  {
-    assertEquals(false, geodelta.delta_geometry.isUpperWorldDelta(0));
-    assertEquals(true,  geodelta.delta_geometry.isUpperWorldDelta(1));
-    assertEquals(false, geodelta.delta_geometry.isUpperWorldDelta(2));
-    assertEquals(true,  geodelta.delta_geometry.isUpperWorldDelta(3));
-    assertEquals(true,  geodelta.delta_geometry.isUpperWorldDelta(4));
-    assertEquals(false, geodelta.delta_geometry.isUpperWorldDelta(5));
-    assertEquals(true,  geodelta.delta_geometry.isUpperWorldDelta(6));
-    assertEquals(false, geodelta.delta_geometry.isUpperWorldDelta(7));
-  }
-
   function test_isUpperSubDelta()
   {
     assertEquals(false, geodelta.delta_geometry.isUpperSubDelta(true,  0));
