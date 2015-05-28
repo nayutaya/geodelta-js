@@ -21,11 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定されたサブデルタIDの上位デルタからの距離を取得する
-  self.getSubDeltaDistance = function(parentIsUpper, id) {
-    return (parentIsUpper ? getUpperSubDeltaDistance(id) : getLowerSubDeltaDistance(id));
-  };
-
   // FIXME: メソッド名を「getDeltaCenter」に変更する
   // デルタID列から中心座標を取得する
   self.getCenter = function(ids) {

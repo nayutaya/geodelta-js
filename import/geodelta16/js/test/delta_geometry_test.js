@@ -5,14 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_getSubDeltaDistance()
-  {
-    assertArrayEquals([+0.0, +4.0], geodelta.delta_geometry.getSubDeltaDistance(true,  1), 1E-15);
-    assertArrayEquals([+3.0, -2.0], geodelta.delta_geometry.getSubDeltaDistance(true,  2), 1E-15);
-    assertArrayEquals([+0.0, -4.0], geodelta.delta_geometry.getSubDeltaDistance(false, 1), 1E-15);
-    assertArrayEquals([-3.0, +2.0], geodelta.delta_geometry.getSubDeltaDistance(false, 2), 1E-15);
-  }
-
   function test_getCenter__level1()
   {
     assertArrayEquals([+0.0, +8.0], geodelta.delta_geometry.getCenter([0]), 1E-15);
