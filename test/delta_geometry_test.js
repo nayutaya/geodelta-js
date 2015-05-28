@@ -6,6 +6,8 @@ describe("delta_geometry", function() {
   var assertEquals = function(expected, actual) { expect(actual).to.eql(expected); };
   // TODO: 許容誤差を考慮する。
   var assertArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
+  // TODO: 許容誤差を考慮する。
+  var assertArrayArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
 
   describe(".getWorldDeltaId", function() {
     it("座標をワールドデルタIDに変換する", function() {
@@ -222,6 +224,203 @@ describe("delta_geometry", function() {
     it("指定された座標を指定されたレベルのデルタID列に変換する（レベル4）", function() {
       assertArrayEquals([0, 0, 0, 0], delta_geometry.getDeltaIds(+0.0, +8.0, 4));
       assertArrayEquals([1, 0, 0, 0], delta_geometry.getDeltaIds(+6.0, +4.0, 4));
+    });
+  });
+
+  describe(".getWorldDeltaCenter", function() {
+    it("指定されたワールドデルタIDの中心座標を取得する", function() {
+      assertArrayEquals([ +0.0, +8.0], delta_geometry.getWorldDeltaCenter(0), 1e-15);
+      assertArrayEquals([ +6.0, +4.0], delta_geometry.getWorldDeltaCenter(1), 1e-15);
+      assertArrayEquals([+12.0, +8.0], delta_geometry.getWorldDeltaCenter(2), 1e-15);
+      assertArrayEquals([+18.0, +4.0], delta_geometry.getWorldDeltaCenter(3), 1e-15);
+      assertArrayEquals([ +0.0, -8.0], delta_geometry.getWorldDeltaCenter(4), 1e-15);
+      assertArrayEquals([ +6.0, -4.0], delta_geometry.getWorldDeltaCenter(5), 1e-15);
+      assertArrayEquals([+12.0, -8.0], delta_geometry.getWorldDeltaCenter(6), 1e-15);
+      assertArrayEquals([+18.0, -4.0], delta_geometry.getWorldDeltaCenter(7), 1e-15);
+    });
+  });
+
+  describe(".getUpperSubDeltaDistance", function() {
+    it("指定されたサブデルタIDの上向き上位デルタからの距離を取得する", function() {
+      assertArrayEquals([+0.0, +0.0], delta_geometry.getUpperSubDeltaDistance(0), 1e-15);
+      assertArrayEquals([+0.0, +4.0], delta_geometry.getUpperSubDeltaDistance(1), 1e-15);
+      assertArrayEquals([+3.0, -2.0], delta_geometry.getUpperSubDeltaDistance(2), 1e-15);
+      assertArrayEquals([-3.0, -2.0], delta_geometry.getUpperSubDeltaDistance(3), 1e-15);
+    });
+  });
+
+  describe(".getLowerSubDeltaDistance", function() {
+    it("指定されたサブデルタIDの下向き上位デルタからの距離を取得する", function() {
+      assertArrayEquals([+0.0, +0.0], delta_geometry.getLowerSubDeltaDistance(0), 1e-15);
+      assertArrayEquals([+0.0, -4.0], delta_geometry.getLowerSubDeltaDistance(1), 1e-15);
+      assertArrayEquals([-3.0, +2.0], delta_geometry.getLowerSubDeltaDistance(2), 1e-15);
+      assertArrayEquals([+3.0, +2.0], delta_geometry.getLowerSubDeltaDistance(3), 1e-15);
+    });
+  });
+
+  describe(".getSubDeltaDistance", function() {
+    it("指定されたサブデルタIDの上位デルタからの距離を取得する", function() {
+      assertArrayEquals([+0.0, +4.0], delta_geometry.getSubDeltaDistance(true,  1), 1e-15);
+      assertArrayEquals([+3.0, -2.0], delta_geometry.getSubDeltaDistance(true,  2), 1e-15);
+      assertArrayEquals([+0.0, -4.0], delta_geometry.getSubDeltaDistance(false, 1), 1e-15);
+      assertArrayEquals([-3.0, +2.0], delta_geometry.getSubDeltaDistance(false, 2), 1e-15);
+    });
+  });
+
+  describe(".getCenter", function() {
+    it("デルタID列から中心座標を取得する（レベル1）", function() {
+      assertArrayEquals([+0.0, +8.0], delta_geometry.getCenter([0]), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.getCenter([1]), 1e-15);
+      assertArrayEquals([+0.0, -8.0], delta_geometry.getCenter([4]), 1e-15);
+      assertArrayEquals([+6.0, -4.0], delta_geometry.getCenter([5]), 1e-15);
+    });
+    it("デルタID列から中心座標を取得する（レベル2）", function() {
+      assertArrayEquals([+0.0,  +8.0], delta_geometry.getCenter([0, 0]), 1e-15);
+      assertArrayEquals([+0.0,  +4.0], delta_geometry.getCenter([0, 1]), 1e-15);
+      assertArrayEquals([-3.0, +10.0], delta_geometry.getCenter([0, 2]), 1e-15);
+      assertArrayEquals([+3.0, +10.0], delta_geometry.getCenter([0, 3]), 1e-15);
+      assertArrayEquals([+6.0,  +4.0], delta_geometry.getCenter([1, 0]), 1e-15);
+      assertArrayEquals([+6.0,  +8.0], delta_geometry.getCenter([1, 1]), 1e-15);
+      assertArrayEquals([+9.0,  +2.0], delta_geometry.getCenter([1, 2]), 1e-15);
+      assertArrayEquals([+3.0,  +2.0], delta_geometry.getCenter([1, 3]), 1e-15);
+      assertArrayEquals([+9.0, +10.0], delta_geometry.getCenter([2, 2]), 1e-15);
+      assertArrayEquals([-9.0,  +2.0], delta_geometry.getCenter([3, 3]), 1e-15);
+
+      assertArrayEquals([+0.0,  -8.0], delta_geometry.getCenter([4, 0]), 1e-15);
+      assertArrayEquals([+0.0,  -4.0], delta_geometry.getCenter([4, 1]), 1e-15);
+      assertArrayEquals([+3.0, -10.0], delta_geometry.getCenter([4, 2]), 1e-15);
+      assertArrayEquals([-3.0, -10.0], delta_geometry.getCenter([4, 3]), 1e-15);
+      assertArrayEquals([+6.0,  -4.0], delta_geometry.getCenter([5, 0]), 1e-15);
+      assertArrayEquals([+6.0,  -8.0], delta_geometry.getCenter([5, 1]), 1e-15);
+      assertArrayEquals([+3.0,  -2.0], delta_geometry.getCenter([5, 2]), 1e-15);
+      assertArrayEquals([+9.0,  -2.0], delta_geometry.getCenter([5, 3]), 1e-15);
+      assertArrayEquals([-9.0, -10.0], delta_geometry.getCenter([6, 2]), 1e-15);
+      assertArrayEquals([-3.0,  -2.0], delta_geometry.getCenter([7, 3]), 1e-15);
+    });
+    it("デルタID列から中心座標を取得する（レベル3）", function() {
+      assertArrayEquals([+0.0,  +8.0], delta_geometry.getCenter([0, 0, 0]), 1e-15);
+      assertArrayEquals([+0.0, +10.0], delta_geometry.getCenter([0, 0, 1]), 1e-15);
+      assertArrayEquals([-1.5,  +5.0], delta_geometry.getCenter([0, 1, 2]), 1e-15);
+      assertArrayEquals([-1.5, +11.0], delta_geometry.getCenter([0, 2, 3]), 1e-15);
+      assertArrayEquals([+3.0, +10.0], delta_geometry.getCenter([0, 3, 0]), 1e-15);
+    });
+  });
+
+  describe(".getCoordinates", function() {
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル1）", function() {
+      var expected1 = [
+          [+0.0,  +8.0],
+          [+0.0,  +0.0], // +0.0, -8.0
+          [-6.0, +12.0], // -6.0, +4.0
+          [+6.0, +12.0], // +6.0, +4.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0]), 1e-15);
+
+      var expected2 = [
+          [ +6.0,  +4.0],
+          [ +6.0, +12.0], // +0.0, +8.0
+          [+12.0,  +0.0], // +6.0, -4.0
+          [ +0.0,  +0.0], // -6.0, -4.0
+      ];
+      assertArrayArrayEquals(expected2, delta_geometry.getCoordinates([1]), 1e-15);
+
+      var expected3 = [
+          [+0.0,  -8.0],
+          [+0.0,  +0.0], // +0.0, +8.0
+          [+6.0, -12.0], // +6.0, -4.0
+          [-6.0, -12.0], // -6.0, -4.0
+      ];
+      assertArrayArrayEquals(expected3, delta_geometry.getCoordinates([4]), 1e-15);
+
+      var expected4 = [
+          [ +6.0,  -4.0],
+          [ +6.0, -12.0], // +0.0, -8.0
+          [ +0.0,  +0.0], // -6.0, +4.0
+          [+12.0,  +0.0], // +6.0, +4.0
+      ];
+      assertArrayArrayEquals(expected4, delta_geometry.getCoordinates([5]), 1e-15);
+    });
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル2）", function() {
+      var expected1 = [
+          [ +0.0,  +8.0],
+          [ +0.0, +12.0], // +0.0, +4.0
+          [ +3.0,  +6.0], // +3.0, -2.0
+          [ -3.0,  +6.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0, 0]), 1e-15);
+
+      var expected2 = [
+          [ +0.0, +4.0],
+          [ +0.0, +0.0], // +0.0, -4.0
+          [ -3.0, +6.0], // -3.0, +2.0
+          [ +3.0, +6.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected2, delta_geometry.getCoordinates([0, 1]), 1e-15);
+
+      var expected3 = [
+          [ -3.0, +10.0],
+          [ -3.0,  +6.0], // +0.0, -4.0
+          [ -6.0, +12.0], // -3.0, +2.0
+          [ +0.0, +12.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected3, delta_geometry.getCoordinates([0, 2]), 1e-15);
+
+      var expected4 = [
+          [ +3.0, +10.0],
+          [ +3.0,  +6.0], // +0.0, -4.0
+          [ +0.0, +12.0], // -3.0, +2.0
+          [ +6.0, +12.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected4, delta_geometry.getCoordinates([0, 3]), 1e-15);
+
+      var expected5 = [
+          [ +0.0,  -8.0],
+          [ +0.0, -12.0], // +0.0, -4.0
+          [ -3.0,  -6.0], // -3.0, +2.0
+          [ +3.0,  -6.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected5, delta_geometry.getCoordinates([4, 0]), 1e-15);
+
+      var expected6 = [
+          [ +0.0, -4.0],
+          [ +0.0, +0.0], // +0.0, +4.0
+          [ +3.0, -6.0], // +3.0, -2.0
+          [ -3.0, -6.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected6, delta_geometry.getCoordinates([4, 1]), 1e-15);
+
+      var expected7 = [
+          [ +3.0, -10.0],
+          [ +3.0,  -6.0], // +0.0, +4.0
+          [ +6.0, -12.0], // +3.0, -2.0
+          [ +0.0, -12.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected7, delta_geometry.getCoordinates([4, 2]), 1e-15);
+
+      var expected8 = [
+          [ -3.0, -10.0],
+          [ -3.0,  -6.0], // +0.0, +4.0
+          [ +0.0, -12.0], // +3.0, -2.0
+          [ -6.0, -12.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected8, delta_geometry.getCoordinates([4, 3]), 1e-15);
+    });
+    it("デルタID列からデルタの中心座標、頂点座標を取得する（レベル3）", function() {
+      var expected1 = [
+          [ +0.0, +8.0],
+          [ +0.0, +6.0], // +0.0, -2.0
+          [ -1.5, +9.0], // -1.5, +1.0
+          [ +1.5, +9.0], // +1.5, +1.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0, 0, 0]), 1e-15);
+
+      var expected = [
+          [ -1.5, +5.0],
+          [ -1.5, +3.0], // +0.0, -2.0
+          [ -3.0, +6.0], // -1.5, +1.0
+          [ +0.0, +6.0], // +1.5, +1.0
+      ];
+      assertArrayArrayEquals(expected, delta_geometry.getCoordinates([0, 1, 2]), 1e-15);
     });
   });
 
