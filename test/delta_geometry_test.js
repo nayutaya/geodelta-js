@@ -8,7 +8,7 @@ describe("delta_geometry", function() {
   var assertArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
 
   describe(".getWorldDeltaId", function() {
-    it("座標をワールドデルタIDに変換できること", function() {
+    it("座標をワールドデルタIDに変換する", function() {
       assertEquals(2, delta_geometry.getWorldDeltaId( -6.0, +12.0));
       assertEquals(3, delta_geometry.getWorldDeltaId( -6.0,  +6.0));
       assertEquals(3, delta_geometry.getWorldDeltaId( -6.0,   0.0));
@@ -54,7 +54,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".getUpperDeltaId", function() {
-    it("座標を上向きのサブデルタIDに変換できること", function() {
+    it("座標を上向きのサブデルタIDに変換する", function() {
       assertEquals(3, delta_geometry.getUpperDeltaId( 0.0,  0.0));
       assertEquals(3, delta_geometry.getUpperDeltaId( 1.5,  3.0));
       assertEquals(3, delta_geometry.getUpperDeltaId( 3.0,  3.0));
@@ -78,7 +78,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".getLowerDeltaId", function() {
-    it("座標を下向きのサブデルタIDに変換できること", function() {
+    it("座標を下向きのサブデルタIDに変換する", function() {
       assertEquals(3, delta_geometry.getLowerDeltaId( 9.0, 12.0));
       assertEquals(3, delta_geometry.getLowerDeltaId( 9.0,  9.0));
       assertEquals(3, delta_geometry.getLowerDeltaId(10.5,  9.0));
@@ -102,7 +102,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".isUpperWorldDelta", function() {
-    it("指定されたワールドデルタIDが上向きかどうか判定できること", function() {
+    it("指定されたワールドデルタIDが上向きかどうか判定する", function() {
       assertEquals(false, delta_geometry.isUpperWorldDelta(0));
       assertEquals(true,  delta_geometry.isUpperWorldDelta(1));
       assertEquals(false, delta_geometry.isUpperWorldDelta(2));
@@ -115,7 +115,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".isUpperSubDelta", function() {
-    it("指定されたサブデルタIDが上向きかどうか判定できること", function() {
+    it("指定されたサブデルタIDが上向きかどうか判定する", function() {
       assertEquals(false, delta_geometry.isUpperSubDelta(true,  0));
       assertEquals(true,  delta_geometry.isUpperSubDelta(true,  1));
       assertEquals(true,  delta_geometry.isUpperSubDelta(true,  2));
@@ -128,7 +128,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".isUpperDelta", function() {
-    it("指定されたデルタID列が上向きかどうか判定できること", function() {
+    it("指定されたデルタID列が上向きかどうか判定する", function() {
       assertEquals(false, delta_geometry.isUpperDelta([0]));
       assertEquals(true,  delta_geometry.isUpperDelta([1]));
       assertEquals(true,  delta_geometry.isUpperDelta([4]));
@@ -151,7 +151,7 @@ describe("delta_geometry", function() {
   });
 
   describe(".transformWorldDelta", function() {
-    it("指定された座標を指定されたワールドデルタID内における正規化座標系に平行移動できること", function() {
+    it("指定された座標を指定されたワールドデルタID内における正規化座標系に平行移動する", function() {
       assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(0,  +0.0, +4.0), 1e-15);
       assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(1,  +6.0, +4.0), 1e-15);
       assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(2, +12.0, +4.0), 1e-15);
