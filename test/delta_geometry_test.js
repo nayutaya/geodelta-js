@@ -111,6 +111,19 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".isUpperSubDelta", function() {
+    it("指定されたサブデルタIDが上向きかどうか判定できること", function() {
+      assertEquals(false, delta_geometry.isUpperSubDelta(true,  0));
+      assertEquals(true,  delta_geometry.isUpperSubDelta(true,  1));
+      assertEquals(true,  delta_geometry.isUpperSubDelta(true,  2));
+      assertEquals(true,  delta_geometry.isUpperSubDelta(true,  3));
+      assertEquals(true,  delta_geometry.isUpperSubDelta(false, 0));
+      assertEquals(false, delta_geometry.isUpperSubDelta(false, 1));
+      assertEquals(false, delta_geometry.isUpperSubDelta(false, 2));
+      assertEquals(false, delta_geometry.isUpperSubDelta(false, 3));
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {

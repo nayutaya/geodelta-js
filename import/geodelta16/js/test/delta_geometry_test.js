@@ -5,18 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_isUpperSubDelta()
-  {
-    assertEquals(false, geodelta.delta_geometry.isUpperSubDelta(true,  0));
-    assertEquals(true,  geodelta.delta_geometry.isUpperSubDelta(true,  1));
-    assertEquals(true,  geodelta.delta_geometry.isUpperSubDelta(true,  2));
-    assertEquals(true,  geodelta.delta_geometry.isUpperSubDelta(true,  3));
-    assertEquals(true,  geodelta.delta_geometry.isUpperSubDelta(false, 0));
-    assertEquals(false, geodelta.delta_geometry.isUpperSubDelta(false, 1));
-    assertEquals(false, geodelta.delta_geometry.isUpperSubDelta(false, 2));
-    assertEquals(false, geodelta.delta_geometry.isUpperSubDelta(false, 3));
-  }
-
   function test_isUpperDelta()
   {
     assertEquals(false, geodelta.delta_geometry.isUpperDelta([0]));

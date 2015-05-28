@@ -21,11 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定されたサブデルタが上向きかどうか判定する
-  self.isUpperSubDelta = function(parentIsUpper, id) {
-    return (parentIsUpper ? (id != 0) : (id == 0));
-  };
-
   // 指定されたデルタが上向きかどうか判定する
   self.isUpperDelta = function(ids) {
     boolean upper = false;
