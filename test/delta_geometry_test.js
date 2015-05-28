@@ -225,6 +225,19 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".getWorldDeltaCenter", function() {
+    it("指定されたワールドデルタIDの中心座標を取得する", function() {
+      assertArrayEquals([ +0.0, +8.0], delta_geometry.getWorldDeltaCenter(0), 1e-15);
+      assertArrayEquals([ +6.0, +4.0], delta_geometry.getWorldDeltaCenter(1), 1e-15);
+      assertArrayEquals([+12.0, +8.0], delta_geometry.getWorldDeltaCenter(2), 1e-15);
+      assertArrayEquals([+18.0, +4.0], delta_geometry.getWorldDeltaCenter(3), 1e-15);
+      assertArrayEquals([ +0.0, -8.0], delta_geometry.getWorldDeltaCenter(4), 1e-15);
+      assertArrayEquals([ +6.0, -4.0], delta_geometry.getWorldDeltaCenter(5), 1e-15);
+      assertArrayEquals([+12.0, -8.0], delta_geometry.getWorldDeltaCenter(6), 1e-15);
+      assertArrayEquals([+18.0, -4.0], delta_geometry.getWorldDeltaCenter(7), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {

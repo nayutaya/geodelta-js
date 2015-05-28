@@ -5,18 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_getWorldDeltaCenter()
-  {
-    assertArrayEquals([ +0.0, +8.0], geodelta.delta_geometry.getWorldDeltaCenter(0), 1E-15);
-    assertArrayEquals([ +6.0, +4.0], geodelta.delta_geometry.getWorldDeltaCenter(1), 1E-15);
-    assertArrayEquals([+12.0, +8.0], geodelta.delta_geometry.getWorldDeltaCenter(2), 1E-15);
-    assertArrayEquals([+18.0, +4.0], geodelta.delta_geometry.getWorldDeltaCenter(3), 1E-15);
-    assertArrayEquals([ +0.0, -8.0], geodelta.delta_geometry.getWorldDeltaCenter(4), 1E-15);
-    assertArrayEquals([ +6.0, -4.0], geodelta.delta_geometry.getWorldDeltaCenter(5), 1E-15);
-    assertArrayEquals([+12.0, -8.0], geodelta.delta_geometry.getWorldDeltaCenter(6), 1E-15);
-    assertArrayEquals([+18.0, -4.0], geodelta.delta_geometry.getWorldDeltaCenter(7), 1E-15);
-  }
-
   function test_getUpperSubDeltaDistance()
   {
     assertArrayEquals([+0.0, +0.0], geodelta.delta_geometry.getUpperSubDeltaDistance(0), 1E-15);

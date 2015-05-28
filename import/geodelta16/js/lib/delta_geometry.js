@@ -21,15 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定されたワールドデルタIDの中心座標を取得する
-  self.getWorldDeltaCenter = function(id) {
-    final double[] xs = {+0.0, +6.0, +12.0, +18.0, +0.0, +6.0, +12.0, +18.0};
-    final double[] ys = {+8.0, +4.0, +8.0, +4.0, -8.0, -4.0, -8.0, -4.0};
-    final double x = xs[id];
-    final double y = ys[id];
-    return new double[] {x, y};
-  };
-
   // 指定されたサブデルタIDの上向き上位デルタからの距離を取得する
   self.getUpperSubDeltaDistance = function(id) {
     final double[] xs = {+0.0, +0.0, +3.0, -3.0};
