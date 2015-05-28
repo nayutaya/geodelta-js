@@ -21,23 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定されたデルタが上向きかどうか判定する
-  self.isUpperDelta = function(ids) {
-    boolean upper = false;
-    for ( int i = 0, len = ids.length; i < len; i++ )
-    {
-      if ( i == 0 )
-      {
-        upper = isUpperWorldDelta(ids[i]);
-      }
-      else
-      {
-        upper = isUpperSubDelta(upper, ids[i]);
-      }
-    }
-    return upper;
-  };
-
   // 指定された座標(x, y)を指定されたワールドデルタID内における正規化座標系に平行移動する
   self.transformWorldDelta = function(id, x, y) {
     final double[] xs = {+6.0, +0.0, -6.0, -12.0, +6.0, +0.0, -6.0, -12.0};

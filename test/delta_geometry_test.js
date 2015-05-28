@@ -124,6 +124,29 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".isUpperDelta", function() {
+    it("指定されたデルタID列が上向きかどうか判定できること", function() {
+      assertEquals(false, delta_geometry.isUpperDelta([0]));
+      assertEquals(true,  delta_geometry.isUpperDelta([1]));
+      assertEquals(true,  delta_geometry.isUpperDelta([4]));
+      assertEquals(false, delta_geometry.isUpperDelta([5]));
+
+      assertEquals(true,  delta_geometry.isUpperDelta([0, 0]));
+      assertEquals(false, delta_geometry.isUpperDelta([0, 1]));
+      assertEquals(false, delta_geometry.isUpperDelta([0, 2]));
+      assertEquals(false, delta_geometry.isUpperDelta([0, 3]));
+
+      assertEquals(false, delta_geometry.isUpperDelta([4, 0]));
+      assertEquals(true,  delta_geometry.isUpperDelta([4, 1]));
+      assertEquals(true,  delta_geometry.isUpperDelta([4, 2]));
+      assertEquals(true,  delta_geometry.isUpperDelta([4, 3]));
+
+      assertEquals(false, delta_geometry.isUpperDelta([0, 0, 0]));
+      assertEquals(true,  delta_geometry.isUpperDelta([0, 0, 0, 0]));
+      assertEquals(false, delta_geometry.isUpperDelta([0, 0, 0, 0, 0]));
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {

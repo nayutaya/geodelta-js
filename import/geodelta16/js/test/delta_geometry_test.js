@@ -5,28 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_isUpperDelta()
-  {
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([1]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([4]));
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([5]));
-
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([0, 0]));
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0, 1]));
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0, 2]));
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0, 3]));
-
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([4, 0]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([4, 1]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([4, 2]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([4, 3]));
-
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0, 0, 0]));
-    assertEquals(true,  geodelta.delta_geometry.isUpperDelta([0, 0, 0, 0]));
-    assertEquals(false, geodelta.delta_geometry.isUpperDelta([0, 0, 0, 0, 0]));
-  }
-
   function test_transformWorldDelta()
   {
     assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.transformWorldDelta(0,  +0.0, +4.0), 1E-15);
