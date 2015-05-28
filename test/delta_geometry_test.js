@@ -4,6 +4,9 @@ var delta_geometry = require("../lib/delta_geometry.js");
 
 describe("delta_geometry", function() {
   var assertEquals = function(expected, actual) { expect(actual).to.eql(expected); };
+  // TODO: 許容誤差を考慮する。
+  var assertArrayEquals = function(expected, actual, delta) { expect(actual).to.eql(expected); };
+
   describe(".getWorldDeltaId", function() {
     it("座標をワールドデルタIDに変換できること", function() {
       assertEquals(2, delta_geometry.getWorldDeltaId( -6.0, +12.0));
@@ -144,6 +147,19 @@ describe("delta_geometry", function() {
       assertEquals(false, delta_geometry.isUpperDelta([0, 0, 0]));
       assertEquals(true,  delta_geometry.isUpperDelta([0, 0, 0, 0]));
       assertEquals(false, delta_geometry.isUpperDelta([0, 0, 0, 0, 0]));
+    });
+  });
+
+  describe(".transformWorldDelta", function() {
+    it("指定された座標を指定されたワールドデルタID内における正規化座標系に平行移動できること", function() {
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(0,  +0.0, +4.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(1,  +6.0, +4.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(2, +12.0, +4.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(3, +18.0, +4.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(4,  +0.0, -8.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(5,  +6.0, -8.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(6, +12.0, -8.0), 1e-15);
+      assertArrayEquals([+6.0, +4.0], delta_geometry.transformWorldDelta(7, +18.0, -8.0), 1e-15);
     });
   });
 
