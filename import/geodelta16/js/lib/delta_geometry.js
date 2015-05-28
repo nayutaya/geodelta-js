@@ -21,23 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定された座標(x, y)に該当する下向きのサブデルタの番号を返す
-  self.getLowerDeltaId = function(x, y) {
-    if ( y > -2.0 * (x - 12.0) )
-    {
-      return 3;
-    }
-    else if ( y > +2.0 * x )
-    {
-      return 2;
-    }
-    else if ( y < 6.0 )
-    {
-      return 1;
-    }
-    return 0;
-  };
-
   // 指定されたワールドデルタが上向きかどうか判定する
   self.isUpperWorldDelta = function(id) {
     return (id % 2 == (id < 4 ? 1 : 0));

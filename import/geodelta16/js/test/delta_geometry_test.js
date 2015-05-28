@@ -5,29 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_getLowerDeltaId()
-  {
-    assertEquals(3, geodelta.delta_geometry.getLowerDeltaId( 9.0, 12.0));
-    assertEquals(3, geodelta.delta_geometry.getLowerDeltaId( 9.0,  9.0));
-    assertEquals(3, geodelta.delta_geometry.getLowerDeltaId(10.5,  9.0));
-    assertEquals(3, geodelta.delta_geometry.getLowerDeltaId(12.0, 12.0));
-    assertEquals(2, geodelta.delta_geometry.getLowerDeltaId( 0.0, 12.0));
-    assertEquals(2, geodelta.delta_geometry.getLowerDeltaId( 1.5,  9.0));
-    assertEquals(2, geodelta.delta_geometry.getLowerDeltaId( 3.0, 12.0));
-    assertEquals(2, geodelta.delta_geometry.getLowerDeltaId( 3.0,  9.0));
-    assertEquals(1, geodelta.delta_geometry.getLowerDeltaId( 4.5,  3.0));
-    assertEquals(1, geodelta.delta_geometry.getLowerDeltaId( 6.0,  3.0));
-    assertEquals(1, geodelta.delta_geometry.getLowerDeltaId( 6.0,  0.0));
-    assertEquals(1, geodelta.delta_geometry.getLowerDeltaId( 7.5,  3.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 3.0,  6.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 4.5,  9.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 6.0, 12.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 6.0,  9.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 6.0,  6.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 7.5,  9.0));
-    assertEquals(0, geodelta.delta_geometry.getLowerDeltaId( 9.0,  6.0));
-  }
-
   function test_isUpperWorldDelta()
   {
     assertEquals(false, geodelta.delta_geometry.isUpperWorldDelta(0));
