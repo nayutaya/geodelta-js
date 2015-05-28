@@ -1,31 +1,41 @@
 
 var core = require("../lib/core.js");
+var expect = require("expect.js");
+
+describe("delta_geometry", function() {
+  var assertEquals = function(expected, actual) { expect(actual).to.eql(expected); };
+
+  describe(".getDeltaIds", function() {
+    it("緯度経度からデルタID列を取得する", function() {
+      assertEquals([0], core.getDeltaIds(+45.0,   +0.0, 1));
+      assertEquals([1], core.getDeltaIds(+45.0,  +90.0, 1));
+      assertEquals([2], core.getDeltaIds(+45.0, +180.0, 1));
+      assertEquals([3], core.getDeltaIds(+45.0,  -90.0, 1));
+      assertEquals([2], core.getDeltaIds(+45.0, -180.0, 1));
+
+      assertEquals([4], core.getDeltaIds(-45.0,   +0.0, 1));
+      assertEquals([5], core.getDeltaIds(-45.0,  +90.0, 1));
+      assertEquals([6], core.getDeltaIds(-45.0, +180.0, 1));
+      assertEquals([7], core.getDeltaIds(-45.0,  -90.0, 1));
+      assertEquals([6], core.getDeltaIds(-45.0, -180.0, 1));
+
+      assertEquals([0],          core.getDeltaIds(+0.0, +0.0, 1));
+      assertEquals([0, 1],       core.getDeltaIds(+0.0, +0.0, 2));
+      assertEquals([0, 1, 1],    core.getDeltaIds(+0.0, +0.0, 3));
+      assertEquals([0, 1, 1, 1], core.getDeltaIds(+0.0, +0.0, 4));
+    });
+  });
+
+/*
+  describe(".TODO", function() {
+    it("TODO", function() {
+    });
+  });
+*/
+});
 
 /*
 class GeoDeltaTest < Test::Unit::TestCase
-  def setup
-    @mod = GeoDelta
-  end
-
-  def test_get_delta_ids
-    assert_equal([0], @mod.get_delta_ids(+45.0,   +0.0, 1))
-    assert_equal([1], @mod.get_delta_ids(+45.0,  +90.0, 1))
-    assert_equal([2], @mod.get_delta_ids(+45.0, +180.0, 1))
-    assert_equal([3], @mod.get_delta_ids(+45.0,  -90.0, 1))
-    assert_equal([2], @mod.get_delta_ids(+45.0, -180.0, 1))
-
-    assert_equal([4], @mod.get_delta_ids(-45.0,   +0.0, 1))
-    assert_equal([5], @mod.get_delta_ids(-45.0,  +90.0, 1))
-    assert_equal([6], @mod.get_delta_ids(-45.0, +180.0, 1))
-    assert_equal([7], @mod.get_delta_ids(-45.0,  -90.0, 1))
-    assert_equal([6], @mod.get_delta_ids(-45.0, -180.0, 1))
-
-    assert_equal([0],          @mod.get_delta_ids(+0.0, +0.0, 1))
-    assert_equal([0, 1],       @mod.get_delta_ids(+0.0, +0.0, 2))
-    assert_equal([0, 1, 1],    @mod.get_delta_ids(+0.0, +0.0, 3))
-    assert_equal([0, 1, 1, 1], @mod.get_delta_ids(+0.0, +0.0, 4))
-  end
-
   def test_get_delta_code
     assert_equal("Z", @mod.get_delta_code(+45.0,   +0.0, 1))
     assert_equal("Y", @mod.get_delta_code(+45.0,  +90.0, 1))
