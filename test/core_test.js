@@ -26,6 +26,27 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".getDeltaCode", function() {
+    it("緯度経度からGeoDeltaコードを取得する", function() {
+      assertEquals("Z", core.getDeltaCode(+45.0,   +0.0, 1));
+      assertEquals("Y", core.getDeltaCode(+45.0,  +90.0, 1));
+      assertEquals("X", core.getDeltaCode(+45.0, +180.0, 1));
+      assertEquals("W", core.getDeltaCode(+45.0,  -90.0, 1));
+      assertEquals("X", core.getDeltaCode(+45.0, -180.0, 1));
+
+      assertEquals("V", core.getDeltaCode(-45.0,   +0.0, 1));
+      assertEquals("T", core.getDeltaCode(-45.0,  +90.0, 1));
+      assertEquals("S", core.getDeltaCode(-45.0, +180.0, 1));
+      assertEquals("R", core.getDeltaCode(-45.0,  -90.0, 1));
+      assertEquals("S", core.getDeltaCode(-45.0, -180.0, 1));
+
+      assertEquals("Z",   core.getDeltaCode(+0.0, +0.0, 1));
+      assertEquals("ZM",  core.getDeltaCode(+0.0, +0.0, 2));
+      assertEquals("Z7",  core.getDeltaCode(+0.0, +0.0, 3));
+      assertEquals("Z7M", core.getDeltaCode(+0.0, +0.0, 4));
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
@@ -36,25 +57,6 @@ describe("delta_geometry", function() {
 
 /*
 class GeoDeltaTest < Test::Unit::TestCase
-  def test_get_delta_code
-    assert_equal("Z", @mod.get_delta_code(+45.0,   +0.0, 1))
-    assert_equal("Y", @mod.get_delta_code(+45.0,  +90.0, 1))
-    assert_equal("X", @mod.get_delta_code(+45.0, +180.0, 1))
-    assert_equal("W", @mod.get_delta_code(+45.0,  -90.0, 1))
-    assert_equal("X", @mod.get_delta_code(+45.0, -180.0, 1))
-
-    assert_equal("V", @mod.get_delta_code(-45.0,   +0.0, 1))
-    assert_equal("T", @mod.get_delta_code(-45.0,  +90.0, 1))
-    assert_equal("S", @mod.get_delta_code(-45.0, +180.0, 1))
-    assert_equal("R", @mod.get_delta_code(-45.0,  -90.0, 1))
-    assert_equal("S", @mod.get_delta_code(-45.0, -180.0, 1))
-
-    assert_equal("Z",   @mod.get_delta_code(+0.0, +0.0, 1))
-    assert_equal("ZM",  @mod.get_delta_code(+0.0, +0.0, 2))
-    assert_equal("Z7",  @mod.get_delta_code(+0.0, +0.0, 3))
-    assert_equal("Z7M", @mod.get_delta_code(+0.0, +0.0, 4))
-  end
-
   def test_get_center_from_delta_ids
     lat, lng = @mod.get_center_from_delta_ids([0])
     assert_in_delta( +71.480, lat, 1.0E-3)
