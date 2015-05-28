@@ -21,23 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定された座標(x, y)に該当する上向きのサブデルタIDを返す
-  self.getUpperDeltaId = function(x, y) {
-    if ( y < -2.0 * (x - 6.0) )
-    {
-      return 3;
-    }
-    else if ( y < +2.0 * (x - 6.0) )
-    {
-      return 2;
-    }
-    else if ( y > 6.0 )
-    {
-      return 1;
-    }
-    return 0;
-  };
-
   // 指定された座標(x, y)に該当する下向きのサブデルタの番号を返す
   self.getLowerDeltaId = function(x, y) {
     if ( y > -2.0 * (x - 12.0) )
