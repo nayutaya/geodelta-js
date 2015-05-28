@@ -5,48 +5,6 @@ function test_namespace_delta_geometry() {
 }
 
 /*
-  function test_getCenter__level1()
-  {
-    assertArrayEquals([+0.0, +8.0], geodelta.delta_geometry.getCenter([0]), 1E-15);
-    assertArrayEquals([+6.0, +4.0], geodelta.delta_geometry.getCenter([1]), 1E-15);
-    assertArrayEquals([+0.0, -8.0], geodelta.delta_geometry.getCenter([4]), 1E-15);
-    assertArrayEquals([+6.0, -4.0], geodelta.delta_geometry.getCenter([5]), 1E-15);
-  }
-
-  function test_getCenter__level2()
-  {
-    assertArrayEquals([+0.0,  +8.0], geodelta.delta_geometry.getCenter([0, 0]), 1E-15);
-    assertArrayEquals([+0.0,  +4.0], geodelta.delta_geometry.getCenter([0, 1]), 1E-15);
-    assertArrayEquals([-3.0, +10.0], geodelta.delta_geometry.getCenter([0, 2]), 1E-15);
-    assertArrayEquals([+3.0, +10.0], geodelta.delta_geometry.getCenter([0, 3]), 1E-15);
-    assertArrayEquals([+6.0,  +4.0], geodelta.delta_geometry.getCenter([1, 0]), 1E-15);
-    assertArrayEquals([+6.0,  +8.0], geodelta.delta_geometry.getCenter([1, 1]), 1E-15);
-    assertArrayEquals([+9.0,  +2.0], geodelta.delta_geometry.getCenter([1, 2]), 1E-15);
-    assertArrayEquals([+3.0,  +2.0], geodelta.delta_geometry.getCenter([1, 3]), 1E-15);
-    assertArrayEquals([+9.0, +10.0], geodelta.delta_geometry.getCenter([2, 2]), 1E-15);
-    assertArrayEquals([-9.0,  +2.0], geodelta.delta_geometry.getCenter([3, 3]), 1E-15);
-
-    assertArrayEquals([+0.0,  -8.0], geodelta.delta_geometry.getCenter([4, 0]), 1E-15);
-    assertArrayEquals([+0.0,  -4.0], geodelta.delta_geometry.getCenter([4, 1]), 1E-15);
-    assertArrayEquals([+3.0, -10.0], geodelta.delta_geometry.getCenter([4, 2]), 1E-15);
-    assertArrayEquals([-3.0, -10.0], geodelta.delta_geometry.getCenter([4, 3]), 1E-15);
-    assertArrayEquals([+6.0,  -4.0], geodelta.delta_geometry.getCenter([5, 0]), 1E-15);
-    assertArrayEquals([+6.0,  -8.0], geodelta.delta_geometry.getCenter([5, 1]), 1E-15);
-    assertArrayEquals([+3.0,  -2.0], geodelta.delta_geometry.getCenter([5, 2]), 1E-15);
-    assertArrayEquals([+9.0,  -2.0], geodelta.delta_geometry.getCenter([5, 3]), 1E-15);
-    assertArrayEquals([-9.0, -10.0], geodelta.delta_geometry.getCenter([6, 2]), 1E-15);
-    assertArrayEquals([-3.0,  -2.0], geodelta.delta_geometry.getCenter([7, 3]), 1E-15);
-  }
-
-  function test_getCenter__level3()
-  {
-    assertArrayEquals([+0.0,  +8.0], geodelta.delta_geometry.getCenter([0, 0, 0]), 1E-15);
-    assertArrayEquals([+0.0, +10.0], geodelta.delta_geometry.getCenter([0, 0, 1]), 1E-15);
-    assertArrayEquals([-1.5,  +5.0], geodelta.delta_geometry.getCenter([0, 1, 2]), 1E-15);
-    assertArrayEquals([-1.5, +11.0], geodelta.delta_geometry.getCenter([0, 2, 3]), 1E-15);
-    assertArrayEquals([+3.0, +10.0], geodelta.delta_geometry.getCenter([0, 3, 0]), 1E-15);
-  }
-
   function test_getCoordinates__level1()
   {
     final double[][] expected1 = {
