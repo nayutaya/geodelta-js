@@ -21,15 +21,6 @@ var geodelta = geodelta || {};
 })();
 
 /*
-  // 指定されたサブデルタIDの上向き上位デルタからの距離を取得する
-  self.getUpperSubDeltaDistance = function(id) {
-    final double[] xs = {+0.0, +0.0, +3.0, -3.0};
-    final double[] ys = {+0.0, +4.0, -2.0, -2.0};
-    final double dx = xs[id];
-    final double dy = ys[id];
-    return new double[] {dx, dy};
-  };
-
   // 指定されたサブデルタIDの下向き上位デルタからの距離を取得する
   self.getLowerSubDeltaDistance = function(id) {
     final double[] xs = {+0.0, +0.0, -3.0, +3.0};
