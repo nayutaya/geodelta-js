@@ -304,6 +304,124 @@ describe("delta_geometry", function() {
     });
   });
 
+  describe(".getCoordinates", function() {
+    it("（レベル1）", function() {
+      var expected1 = [
+          [+0.0,  +8.0],
+          [+0.0,  +0.0], // +0.0, -8.0
+          [-6.0, +12.0], // -6.0, +4.0
+          [+6.0, +12.0], // +6.0, +4.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0]), 1e-15);
+
+      var expected2 = [
+          [ +6.0,  +4.0],
+          [ +6.0, +12.0], // +0.0, +8.0
+          [+12.0,  +0.0], // +6.0, -4.0
+          [ +0.0,  +0.0], // -6.0, -4.0
+      ];
+      assertArrayArrayEquals(expected2, delta_geometry.getCoordinates([1]), 1e-15);
+
+      var expected3 = [
+          [+0.0,  -8.0],
+          [+0.0,  +0.0], // +0.0, +8.0
+          [+6.0, -12.0], // +6.0, -4.0
+          [-6.0, -12.0], // -6.0, -4.0
+      ];
+      assertArrayArrayEquals(expected3, delta_geometry.getCoordinates([4]), 1e-15);
+
+      var expected4 = [
+          [ +6.0,  -4.0],
+          [ +6.0, -12.0], // +0.0, -8.0
+          [ +0.0,  +0.0], // -6.0, +4.0
+          [+12.0,  +0.0], // +6.0, +4.0
+      ];
+      assertArrayArrayEquals(expected4, delta_geometry.getCoordinates([5]), 1e-15);
+    });
+    it("（レベル2）", function() {
+      var expected1 = [
+          [ +0.0,  +8.0],
+          [ +0.0, +12.0], // +0.0, +4.0
+          [ +3.0,  +6.0], // +3.0, -2.0
+          [ -3.0,  +6.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0, 0]), 1e-15);
+
+      var expected2 = [
+          [ +0.0, +4.0],
+          [ +0.0, +0.0], // +0.0, -4.0
+          [ -3.0, +6.0], // -3.0, +2.0
+          [ +3.0, +6.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected2, delta_geometry.getCoordinates([0, 1]), 1e-15);
+
+      var expected3 = [
+          [ -3.0, +10.0],
+          [ -3.0,  +6.0], // +0.0, -4.0
+          [ -6.0, +12.0], // -3.0, +2.0
+          [ +0.0, +12.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected3, delta_geometry.getCoordinates([0, 2]), 1e-15);
+
+      var expected4 = [
+          [ +3.0, +10.0],
+          [ +3.0,  +6.0], // +0.0, -4.0
+          [ +0.0, +12.0], // -3.0, +2.0
+          [ +6.0, +12.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected4, delta_geometry.getCoordinates([0, 3]), 1e-15);
+
+      var expected5 = [
+          [ +0.0,  -8.0],
+          [ +0.0, -12.0], // +0.0, -4.0
+          [ -3.0,  -6.0], // -3.0, +2.0
+          [ +3.0,  -6.0], // +3.0, +2.0
+      ];
+      assertArrayArrayEquals(expected5, delta_geometry.getCoordinates([4, 0]), 1e-15);
+
+      var expected6 = [
+          [ +0.0, -4.0],
+          [ +0.0, +0.0], // +0.0, +4.0
+          [ +3.0, -6.0], // +3.0, -2.0
+          [ -3.0, -6.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected6, delta_geometry.getCoordinates([4, 1]), 1e-15);
+
+      var expected7 = [
+          [ +3.0, -10.0],
+          [ +3.0,  -6.0], // +0.0, +4.0
+          [ +6.0, -12.0], // +3.0, -2.0
+          [ +0.0, -12.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected7, delta_geometry.getCoordinates([4, 2]), 1e-15);
+
+      var expected8 = [
+          [ -3.0, -10.0],
+          [ -3.0,  -6.0], // +0.0, +4.0
+          [ +0.0, -12.0], // +3.0, -2.0
+          [ -6.0, -12.0], // -3.0, -2.0
+      ];
+      assertArrayArrayEquals(expected8, delta_geometry.getCoordinates([4, 3]), 1e-15);
+    });
+    it("（レベル3）", function() {
+      var expected1 = [
+          [ +0.0, +8.0],
+          [ +0.0, +6.0], // +0.0, -2.0
+          [ -1.5, +9.0], // -1.5, +1.0
+          [ +1.5, +9.0], // +1.5, +1.0
+      ];
+      assertArrayArrayEquals(expected1, delta_geometry.getCoordinates([0, 0, 0]), 1e-15);
+
+      var expected = [
+          [ -1.5, +5.0],
+          [ -1.5, +3.0], // +0.0, -2.0
+          [ -3.0, +6.0], // -1.5, +1.0
+          [ +0.0, +6.0], // +1.5, +1.0
+      ];
+      assertArrayArrayEquals(expected, delta_geometry.getCoordinates([0, 1, 2]), 1e-15);
+    });
+  });
+
 /*
   describe(".TODO", function() {
     it("TODO", function() {
