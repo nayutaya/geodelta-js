@@ -5,7 +5,7 @@ var encoder = require("../lib/encoder.js");
 
 describe("encoder", function() {
   describe(".encodeWorldDelta", function() {
-    it("ワールドデルタIDをエンコードできること", function() {
+    it("ワールドデルタIDをエンコードする", function() {
       assert.equal("Z", encoder.encodeWorldDelta(0));
       assert.equal("Y", encoder.encodeWorldDelta(1));
       assert.equal("X", encoder.encodeWorldDelta(2));
@@ -86,7 +86,7 @@ function test_encodeWorldDelta__invalidArg2()
     }
 */
   describe(".encodeSubDelta", function() {
-    it("サブデルタID列をエンコードできること", function() {
+    it("サブデルタID列をエンコードする", function() {
       assert.equal("2", encoder.encodeSubDelta([0, 0]));
       assert.equal("3", encoder.encodeSubDelta([0, 1]));
       assert.equal("4", encoder.encodeSubDelta([0, 2]));
@@ -104,13 +104,13 @@ function test_encodeWorldDelta__invalidArg2()
       assert.equal("H", encoder.encodeSubDelta([3, 2]));
       assert.equal("J", encoder.encodeSubDelta([3, 3]));
     });
-    it("サブデルタID列をエンコードできること", function() {
+    it("サブデルタID列をエンコードする", function() {
       assert.equal("K", encoder.encodeSubDelta([0]));
       assert.equal("M", encoder.encodeSubDelta([1]));
       assert.equal("N", encoder.encodeSubDelta([2]));
       assert.equal("P", encoder.encodeSubDelta([3]));
     });
-    it("サブデルタID列をエンコードできること", function() {
+    it("サブデルタID列をエンコードする", function() {
       assert.equal("2K", encoder.encodeSubDelta([0, 0, 0]));
       assert.equal("22", encoder.encodeSubDelta([0, 0, 0, 0]));
       assert.equal("3N", encoder.encodeSubDelta([0, 1, 2]));
@@ -146,7 +146,7 @@ function test_encodeWorldDelta__invalidArg2()
 
   describe(".decodeSubDelta", function() {
     var assertArrayEquals = function(expected, actual) { expect(actual).to.eql(expected); };
-    it("サブデルタコードをデコードできること", function() {
+    it("サブデルタコードをデコードする", function() {
       assertArrayEquals([0, 0], encoder.decodeSubDelta("2"));
       assertArrayEquals([0, 1], encoder.decodeSubDelta("3"));
       assertArrayEquals([0, 2], encoder.decodeSubDelta("4"));
@@ -164,13 +164,13 @@ function test_encodeWorldDelta__invalidArg2()
       assertArrayEquals([3, 2], encoder.decodeSubDelta("H"));
       assertArrayEquals([3, 3], encoder.decodeSubDelta("J"));
     });
-    it("サブデルタコードをデコードできること", function() {
+    it("サブデルタコードをデコードする", function() {
       assertArrayEquals([0], encoder.decodeSubDelta("K"));
       assertArrayEquals([1], encoder.decodeSubDelta("M"));
       assertArrayEquals([2], encoder.decodeSubDelta("N"));
       assertArrayEquals([3], encoder.decodeSubDelta("P"));
     });
-    it("サブデルタコードをデコードできること", function() {
+    it("サブデルタコードをデコードする", function() {
       assertArrayEquals([0, 0, 0],    encoder.decodeSubDelta("2K"));
       assertArrayEquals([0, 0, 0, 0], encoder.decodeSubDelta("22"));
       assertArrayEquals([0, 1, 2],    encoder.decodeSubDelta("3N"));
@@ -234,7 +234,7 @@ function test_encodeWorldDelta__invalidArg2()
 */
 
   describe(".encode", function() {
-    it("デルタID列をエンコードできること", function() {
+    it("デルタID列をエンコードする", function() {
       assert.equal("Z",   encoder.encode([0]));
       assert.equal("ZM",  encoder.encode([0, 1]));
       assert.equal("Z8",  encoder.encode([0, 1, 2]));
@@ -262,7 +262,7 @@ function test_encodeWorldDelta__invalidArg2()
 
   describe(".decode", function() {
     var assertArrayEquals = function(expected, actual) { expect(actual).to.eql(expected); };
-    it("GeoDeltaコードをデコードできること", function() {
+    it("GeoDeltaコードをデコードする", function() {
       assertArrayEquals([0],          encoder.decode("Z"));
       assertArrayEquals([0, 1],       encoder.decode("ZM"));
       assertArrayEquals([0, 1, 2],    encoder.decode("Z8"));
