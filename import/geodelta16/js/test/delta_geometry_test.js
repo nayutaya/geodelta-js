@@ -4,51 +4,6 @@ function test_namespace_delta_geometry() {
   assertNotUndefined(geodelta.delta_geometry);
 }
 
-function test_getWorldDeltaId()
-{
-  assertEquals(2, geodelta.delta_geometry.getWorldDeltaId( -6.0, +12.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId( -6.0,  +6.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId( -6.0,   0.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId( -3.0,  +6.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(  0.0, +12.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(  0.0,  +6.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(  0.0,   0.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId( +3.0,  +6.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId( +6.0, +12.0));
-  assertEquals(1, geodelta.delta_geometry.getWorldDeltaId( +6.0,  +6.0));
-  assertEquals(1, geodelta.delta_geometry.getWorldDeltaId( +6.0,   0.0));
-  assertEquals(1, geodelta.delta_geometry.getWorldDeltaId( +9.0,  +6.0));
-  assertEquals(1, geodelta.delta_geometry.getWorldDeltaId(+12.0,   0.0));
-  assertEquals(2, geodelta.delta_geometry.getWorldDeltaId(+12.0, +12.0));
-  assertEquals(2, geodelta.delta_geometry.getWorldDeltaId(+12.0,  +6.0));
-  assertEquals(2, geodelta.delta_geometry.getWorldDeltaId(+15.0,  +6.0));
-  assertEquals(2, geodelta.delta_geometry.getWorldDeltaId(+18.0, +12.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId(+18.0,  +6.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId(+18.0,   0.0));
-  assertEquals(3, geodelta.delta_geometry.getWorldDeltaId(+21.0,  +6.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(+24.0, +12.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(+24.0,  +6.0));
-  assertEquals(0, geodelta.delta_geometry.getWorldDeltaId(+24.0,   0.0));
-
-  assertEquals(6, geodelta.delta_geometry.getWorldDeltaId( -6.0, -12.0));
-  assertEquals(7, geodelta.delta_geometry.getWorldDeltaId( -6.0,  -6.0));
-  assertEquals(7, geodelta.delta_geometry.getWorldDeltaId( -3.0,  -6.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId(  0.0,  -6.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId(  0.0, -12.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId( +3.0,  -6.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId( +6.0, -12.0));
-  assertEquals(5, geodelta.delta_geometry.getWorldDeltaId( +6.0,  -6.0));
-  assertEquals(5, geodelta.delta_geometry.getWorldDeltaId( +9.0,  -6.0));
-  assertEquals(6, geodelta.delta_geometry.getWorldDeltaId(+12.0,  -6.0));
-  assertEquals(6, geodelta.delta_geometry.getWorldDeltaId(+12.0, -12.0));
-  assertEquals(6, geodelta.delta_geometry.getWorldDeltaId(+15.0,  -6.0));
-  assertEquals(6, geodelta.delta_geometry.getWorldDeltaId(+18.0, -12.0));
-  assertEquals(7, geodelta.delta_geometry.getWorldDeltaId(+18.0,  -6.0));
-  assertEquals(7, geodelta.delta_geometry.getWorldDeltaId(+21.0,  -6.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId(+24.0,  -6.0));
-  assertEquals(4, geodelta.delta_geometry.getWorldDeltaId(+24.0, -12.0));
-}
-
 /*
   function test_getUpperDeltaId()
   {
