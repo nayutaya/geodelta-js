@@ -24,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/nayutaya/geodelta-js/issues"
   },
-  "homepage": "https://github.com/nayutaya/geodelta-js"
+  "homepage": "https://github.com/nayutaya/geodelta-js",
+  "keywords": ["geo", "geolocation", "geocode", "geodelta"]
 }
