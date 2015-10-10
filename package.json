@@ -1,29 +1,33 @@
 {
   "name": "geodelta",
-  "version": "0.0.1",
   "description": "An implementation of GeoDelta for JavaScript.",
-  "main": "index.js",
+  "version": "0.0.1",
+  "author": "Yuya Kato (Nayutaya Inc.)",
+  "bugs": {
+    "url": "https://github.com/nayutaya/geodelta-js/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5"
+  },
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-    "mocha": "^2.2.5",
-    "expect.js": "^0.3.1"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
+  "homepage": "https://github.com/nayutaya/geodelta-js",
+  "keywords": [
+    "geo",
+    "geocode",
+    "geodelta",
+    "geolocation"
+  ],
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/nayutaya/geodelta-js.git"
   },
-  "author": "Yuya Kato (Nayutaya Inc.)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nayutaya/geodelta-js/issues"
-  },
-  "homepage": "https://github.com/nayutaya/geodelta-js",
-  "keywords": ["geo", "geolocation", "geocode", "geodelta"]
+  "scripts": {
+    "test": "mocha"
+  }
 }
